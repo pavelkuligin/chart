@@ -1,0 +1,50 @@
+{
+  "name": "chArt",
+  "description": "Generate the most popular types of charts by real or random data",
+  "author": "Pavel Kuligin",
+  "authorEmail": "pavel.kuligin@behavox.com",
+  "version": 1.0,
+  "identifier": "com.example.sketch.chart",
+  "commands": [
+    {
+      "name": "Line chart",
+      "identifier": "lineChart",
+      "shortcut": "",
+      "script": "lineChart.js",
+      "handler": "onRun"
+    },
+    {
+      "name": "Bar chart",
+      "identifier": "barChart",
+      "shortcut": "",
+      "script": "barChart.js",
+      "handler": "onRun"
+    },
+    {
+      "name": "Stacked area chart",
+      "identifier": "stackedAreaChart",
+      "shortcut": "",
+      "script": "stackedAreaChart.js",
+      "handler": "onRun"
+    },
+    {
+      "name": "Circle progress bar",
+      "identifier": "circleProgressBar",
+      "shortcut": "",
+      "script": "circleProgressBar.js",
+      "handler": "onRun"
+    },
+    {
+      "name": "Sparkline",
+      "identifier": "sparkLine",
+      "shortcut": "",
+      "script": "sparkLine.js",
+      "handler": "onRun"
+    }
+  ],
+  "menu": {
+    "items": [
+      "lineChart", "barChart", "stackedAreaChart", "circleProgressBar", "sparkLine"
+    ]
+  }
+}
