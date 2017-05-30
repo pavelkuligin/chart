@@ -14,3 +14,14 @@ Chart is a Sketch plugin for generate the most popular charts by real or random 
 ### Create line chart
 
 <img width="800" height="500" src="images/line-chart.gif" title="Line chart">
+
+To create Line chart by real data do next steps:
+1. Create Artboard in Sketch.
+2. Create Rectangle and place it on Artboard.
+3. Copy text data (separator a comma).
+4. Select Rectangle.
+5. Run chArt > Line chart.
+6. Select type of lines:
+    -straight;
+    -curved.
+7. CLick "OK".
