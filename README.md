@@ -12,3 +12,5 @@ Chart is a Sketch plugin for generate the most popular charts by real or random 
 
 
 ### Create line chart
+
+<img width="800" height="500" src="images/line-chart.gif" title="Line chart">
