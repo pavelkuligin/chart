@@ -11,6 +11,4 @@ Chart is a Sketch plugin for generate the most popular charts by real or random 
 2. Double click `chArt.sketchplugin`.
 
 
-## Create charts
-
-### Line chart
+## Create line chart
