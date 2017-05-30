@@ -12,4 +12,5 @@ Chart is a Sketch plugin for generate the most popular charts by real or random 
 
 
 ## Create charts
+
 ### Line chart
