@@ -15,7 +15,7 @@ Chart is a Sketch plugin for generate the most popular charts by real or random 
 
 <img width="800" height="500" src="images/line-chart.gif" title="Line chart">
 
-To create Line chart by real data do next steps:
+To create Line chart by real data do these steps:
 1. Create Artboard in Sketch.
 2. Create Rectangle and place it on Artboard.
 3. Copy text data (separator a comma).
