@@ -22,6 +22,6 @@ To create Line chart by real data do next steps:
 4. Select Rectangle.
 5. Run chArt > Line chart.
 6. Select type of lines:
-    -straight;
-    -curved.
+    *straight;
+    *curved.
 7. CLick "OK".
