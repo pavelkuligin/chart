@@ -14,6 +14,7 @@ Chart is a Sketch plugin for generate the most popular charts by real or random 
 ### Create line chart
 
 <img width="800" height="500" src="images/line-chart.gif" title="Line chart">
+
 To create Line chart by real data do these steps:
 1. Create Artboard in Sketch.
 2. Create Rectangle and place it on Artboard.
@@ -26,6 +27,7 @@ To create Line chart by real data do these steps:
 7. CLick "OK".
 
 <img width="800" height="500" src="images/line-random.gif" title="Line random data">
+
 To create Line chart by random data do these steps:
 1. Create Artboard in Sketch.
 2. Create Rectangle and place it on Artboard.
@@ -42,6 +44,7 @@ To create Line chart by random data do these steps:
 ### Create stacked area chart
 
 <img width="800" height="500" src="images/area-chart.gif" title="Area chart">
+
 To create Stacked area chart by real data do these steps:
 1. Create Artboard in Sketch.
 2. Create Rectangle and place it on Artboard.
@@ -54,6 +57,7 @@ To create Stacked area chart by real data do these steps:
 7. CLick "OK".
 
 <img width="800" height="500" src="images/area-random.gif" title="Area random data">
+
 To create Stacked area chart by random data do these steps:
 1. Create Artboard in Sketch.
 2. Create Rectangle and place it on Artboard.
