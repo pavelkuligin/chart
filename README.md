@@ -40,6 +40,7 @@ To create Line chart by random data do these steps:
     * type of lines.
 6. CLick "OK".
 
+
 ### Create stacked area chart
 
 <img width="800" height="500" src="images/area-chart.gif" title="Area chart">
