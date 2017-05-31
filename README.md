@@ -26,10 +26,6 @@ To create Line chart by real data do these steps:
     * curved.
 7. CLick "OK".
 
-Example of using tabulated data:
-
-
-
 <img width="800" height="500" src="images/line-random.gif" title="Line random data">
 
 To create Line chart by random data do these steps:
@@ -50,3 +46,6 @@ To create Line chart by random data do these steps:
 <img width="800" height="500" src="images/area-chart.gif" title="Area chart">
 
 To create Stacked area chart by real or random data use instructions for Line chart.
+
+Example of using tabulated data:
+<img width="400" height="250" src="images/area-table.gif" title="Area table data">
