@@ -57,3 +57,9 @@ Example of using tabulated data:
 To create Bar chart by real or random data use instructions for Line chart.
 Also you can create vertical or horizontal bar chart.
 
+### Create progress bars
+
+<img width="800" height="500" src="images/progress-bars.gif" title="Progress bars">
+
+To create Progress bars by real or random data use instructions for Line chart.
+
