@@ -25,3 +25,17 @@ To create Line chart by real data do these steps:
     * straight;
     * curved.
 7. CLick "OK".
+
+<img width="800" height="500" src="images/line-random.gif" title="Line random data">
+
+To create Line chart by random data do these steps:
+1. Create Artboard in Sketch.
+2. Create Rectangle and place it on Artboard.
+3. Select Rectangle (pasteboard must not contain numbers separated by commas).
+4. Run chArt > Line chart.
+5. Select optinos for chart:
+    * number of lines;
+    * number of points;
+    * max value;
+    * type of lines.
+6. CLick "OK".
