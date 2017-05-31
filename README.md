@@ -49,3 +49,11 @@ To create Stacked area chart by real or random data use instructions for Line ch
 
 Example of using tabulated data:
 <img width="800" height="500" src="images/area-table.gif" title="Area table data">
+
+### Create bar chart
+
+<img width="800" height="500" src="images/bar-chart.gif" title="Bar chart">
+
+To create Bar chart by real or random data use instructions for Line chart.
+Also you can create vertical or horizontal bar chart.
+
