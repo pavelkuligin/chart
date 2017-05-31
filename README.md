@@ -48,4 +48,4 @@ To create Line chart by random data do these steps:
 To create Stacked area chart by real or random data use instructions for Line chart.
 
 Example of using tabulated data:
-<img width="400" height="250" src="images/area-table.gif" title="Area table data">
+<img width="800" height="500" src="images/area-table.gif" title="Area table data">
