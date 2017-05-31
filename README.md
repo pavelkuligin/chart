@@ -63,3 +63,8 @@ Also you can create vertical or horizontal bar chart.
 
 To create Progress bars by real or random data use instructions for Line chart.
 
+### Create sparklines
+
+<img width="800" height="500" src="images/sparklines.gif" title="Sparklines">
+
+To create Sparklines by real or random data use instructions for Line chart.
