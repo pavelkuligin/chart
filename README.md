@@ -2,69 +2,10 @@
 
 <img width="384" height="193" src="images/chart-2x.png" title="Chart promo">
 
-Chart is a Sketch plugin for generate the most popular charts by real or random data. Chart supports copy-paste from any kind of text editor, for example: Notes, Word, Google Docs, etc. Also Chart supports copy-paste tabulated data (Google Sheets). Random data is a standard psevdo-random function Math.random().
+Chart is a Sketch plugin for creation the most popular charts by real or random data. Chart supports copy-paste from any kind of text editor, for example: Notes, Word, Google Docs, etc. Also Chart supports copy-paste tabulated data from Google Sheets or Microsoft Excel.
 
 
 ### Install
 
 1. Download and unzip: [chart-master.zip](https://github.com/pavelkuligin/chart/archive/master.zip).
 2. Double click `chArt.sketchplugin`.
-
-
-### Create line chart
-
-<img width="800" height="500" src="images/line-chart.gif" title="Line chart">
-
-To create Line chart by real data do these steps:
-1. Create Artboard in Sketch.
-2. Create Rectangle and place it on Artboard.
-3. Copy text data (separator a comma).
-4. Select Rectangle.
-5. Run chArt > Line chart.
-6. Select type of lines:
-    * straight;
-    * curved.
-7. CLick "OK".
-
-<img width="800" height="500" src="images/line-random.gif" title="Line random data">
-
-To create Line chart by random data do these steps:
-1. Create Artboard in Sketch.
-2. Create Rectangle and place it on Artboard.
-3. Select Rectangle (pasteboard must not contain numbers separated by commas).
-4. Run chArt > Line chart.
-5. Select optinos for chart:
-    * number of lines;
-    * number of points;
-    * max value;
-    * type of lines.
-6. CLick "OK".
-
-
-### Create stacked area chart
-
-<img width="800" height="500" src="images/area-chart.gif" title="Area chart">
-
-To create Stacked area chart by real or random data use instructions for Line chart.
-
-Example of using tabulated data:
-<img width="800" height="500" src="images/area-table.gif" title="Area table data">
-
-### Create bar chart
-
-<img width="800" height="500" src="images/bar-chart.gif" title="Bar chart">
-
-To create Bar chart by real or random data use instructions for Line chart.
-Also you can create vertical or horizontal bar chart.
-
-### Create progress bars
-
-<img width="800" height="500" src="images/progress-bars.gif" title="Progress bars">
-
-To create Progress bars by real or random data use instructions for Line chart.
-
-### Create sparklines
-
-<img width="800" height="500" src="images/sparklines.gif" title="Sparklines">
-
-To create Sparklines by real or random data use instructions for Line chart.
