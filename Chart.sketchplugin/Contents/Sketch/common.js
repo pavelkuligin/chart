@@ -102,6 +102,7 @@ if([selection count] == 0) {
 		var rowLength = rows[0].length;
 
 		var rowMax = new Array();
+		var rowsMax = new Array();
 		for (var j = 0; j < rowLength; j++){
 				rowMax[j] = 0;
 			}
@@ -110,11 +111,22 @@ if([selection count] == 0) {
 
 			for (var j = 0; j < rowLength; j++){
 				rowMax[j] = rowMax[j] + Number(rows[i][j]);
+				rows[i][j] = Number(rows[i][j]);
 			}
+
+			rowsMax[i] = Math.max.apply(null, rows[i]);
 			
 		};
 
-		var dataMax = Math.max.apply(null, rowMax);
+		if (stacked == true){
+
+			var dataMax = Math.max.apply(null, rowMax);
+
+		} else{
+
+			var dataMax = Math.max.apply(null, rowsMax);
+
+		}
 
 	};
 

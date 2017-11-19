@@ -1,7 +1,7 @@
 // Type of line: straight — 0, curved — 1
 var curveType = 1;
 
-// Set of colors for lines
+// Set of colors for lines and areas
 var colorPalette = new Array();
 	var red = [244,67,54];
 	var pink = [233,30,99];
@@ -17,6 +17,7 @@ var colorPalette = new Array();
 
 	colorPalette = [red, green, blue, yellow, purple, pink, amber, cian, deepPurple, teal, orange];
 
+// Set color for Sparkline
 var sparkColor = red;
 
 // Set parameters for lines
