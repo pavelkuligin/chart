@@ -1,4 +1,4 @@
-# chart
+# Chart
 
 <img width="384" height="193" src="images/chart-2x.png" title="Chart promo">
 
