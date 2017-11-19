@@ -63,3 +63,4 @@ Open `Parameter.js` in Chart.sketchplugin/Contents/Sketch/ and change plugin's p
 
 If you have any questions or ideas about Chart, please, feel free to contact me:
 pavel.kuligin@behavox.com, www.pavelkuligin.ru or [facebook](https://www.facebook.com/profile.php?id=100008250510371)
+
