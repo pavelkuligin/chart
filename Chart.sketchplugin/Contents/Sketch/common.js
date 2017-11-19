@@ -118,15 +118,17 @@ if([selection count] == 0) {
 			
 		};
 
-		if (stacked == true){
+		if (stacked === true){
 
 			var dataMax = Math.max.apply(null, rowMax);
 
-		} else{
+		} else {
 
 			var dataMax = Math.max.apply(null, rowsMax);
 
 		}
+
+		
 
 	};
 
