@@ -8,4 +8,4 @@ Chart is a Sketch plugin for creation the most popular charts by real or random 
 ### Install
 
 1. Download and unzip: [chart-master.zip](https://github.com/pavelkuligin/chart/archive/master.zip).
-2. Double click `chArt.sketchplugin`.
+2. Double click `Chart.sketchplugin`.
