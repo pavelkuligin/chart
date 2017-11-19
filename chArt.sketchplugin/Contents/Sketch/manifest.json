@@ -1,10 +1,10 @@
 {
-  "name": "chArt",
-  "description": "Generate the most popular types of charts by real or random data",
+  "name": "Chart",
+  "description": "Create the most popular types of charts by real or random data",
   "author": "Pavel Kuligin",
   "authorEmail": "pavel.kuligin@behavox.com",
-  "version": 1.0,
-  "identifier": "com.example.sketch.chart",
+  "version": 2.0,
+  "identifier": "com.sketchapp.examples.chart",
   "commands": [
     {
       "name": "Line chart",
@@ -14,10 +14,24 @@
       "handler": "onRun"
     },
     {
-      "name": "Bar chart",
-      "identifier": "barChart",
+      "name": "Vertical Bar chart",
+      "identifier": "barChartVertical",
       "shortcut": "",
-      "script": "barChart.js",
+      "script": "barChartVertical.js",
+      "handler": "onRun"
+    },
+    {
+      "name": "Horizontal Bar chart",
+      "identifier": "barChartHorizontal",
+      "shortcut": "",
+      "script": "barChartHorizontal.js",
+      "handler": "onRun"
+    },
+    {
+      "name": "Area chart",
+      "identifier": "areaChart",
+      "shortcut": "",
+      "script": "areaChart.js",
       "handler": "onRun"
     },
     {
@@ -25,13 +39,6 @@
       "identifier": "stackedAreaChart",
       "shortcut": "",
       "script": "stackedAreaChart.js",
-      "handler": "onRun"
-    },
-    {
-      "name": "Circle progress bar",
-      "identifier": "circleProgressBar",
-      "shortcut": "",
-      "script": "circleProgressBar.js",
       "handler": "onRun"
     },
     {
@@ -44,7 +51,7 @@
   ],
   "menu": {
     "items": [
-      "lineChart", "barChart", "stackedAreaChart", "circleProgressBar", "sparkLine"
+      "lineChart", "barChartVertical", "barChartHorizontal", "areaChart", "stackedAreaChart", "sparkLine"
     ]
   }
 }
