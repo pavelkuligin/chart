@@ -20,6 +20,12 @@ Chart is a Sketch plugin for creation the most popular charts by real or random 
 
 ### Install
 
+**Via Sketchpacks**
+
+[![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Chart with Sketchpacks")](https://sketchpacks.com/pavelkuligin/chart/install)
+
+**Or manually**
+
 1. Download and unzip: [chart-master.zip](https://github.com/pavelkuligin/chart/archive/master.zip).
 2. Double click `Chart.sketchplugin`.
 

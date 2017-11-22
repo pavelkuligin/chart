@@ -5,6 +5,7 @@
   "authorEmail": "pavel.kuligin@behavox.com",
   "version": 2.0,
   "identifier": "com.sketchapp.examples.chart",
+  "compatibleVersion": "46.2",
   "commands": [
     {
       "name": "Line chart",
