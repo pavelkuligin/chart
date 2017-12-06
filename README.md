@@ -60,6 +60,7 @@ Open `Parameter.js` in Chart.sketchplugin/Contents/Sketch/ and change plugin's p
 	// Set parameters for lines
 	var borderThickness = 2;
 	var endWidth = 8;
+	var dots = true;
 
 	// Set parameters for sparklines
 	var borderThicknessSpark = 1;
