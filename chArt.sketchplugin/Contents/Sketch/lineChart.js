@@ -33,6 +33,22 @@ var onRun = function(context){
 
 				[line curveToPoint:NSMakePoint(xNext,y) controlPoint1:NSMakePoint(xLast + xStep / 2,yLast) controlPoint2:NSMakePoint(xNext - xStep / 2,y)];
 
+				if ( dots == true ){
+					var lineCircle = MSOvalShape.alloc().init();
+					lineCircle.frame = MSRect.rectWithRect(NSMakeRect(xLast - endWidth / 2,yLast - endWidth / 2,endWidth,endWidth));
+					var lineCircleShape = MSShapeGroup.shapeWithPath(lineCircle);
+					var fillCircle = lineCircleShape.style().addStylePartOfType(0);
+					fillCircle.color = MSColor.colorWithRed_green_blue_alpha(colorPalette[i][0]/255,colorPalette[i][1]/255,colorPalette[i][2]/255,1);
+					var borderCircle = lineCircleShape.style().addStylePartOfType(1);
+					borderCircle.color = MSColor.colorWithRed_green_blue_alpha(255/255,255/255,255/255,1);
+					borderCircle.thickness = borderThickness;
+					borderCircle.position = 2;
+					lineCircleShape.setName("a_linePoint_" + ( j ));
+
+					doc.currentPage().currentArtboard().addLayers([lineCircleShape]);
+					[lineCircleShape select:true byExpandingSelection:true];
+				}
+
 				xLast = xNext;
 				yLast = y;
 
@@ -67,6 +83,10 @@ var onRun = function(context){
 		var circleShape = MSShapeGroup.shapeWithPath(endCircle);
 		var fill = circleShape.style().addStylePartOfType(0);
 		fill.color = MSColor.colorWithRed_green_blue_alpha(colorPalette[i][0]/255,colorPalette[i][1]/255,colorPalette[i][2]/255,1);
+		var borderEnd = circleShape.style().addStylePartOfType(1);
+		borderEnd.color = MSColor.colorWithRed_green_blue_alpha(255/255,255/255,255/255,1);
+		borderEnd.thickness = borderThickness;
+		borderEnd.position = 2;
 		circleShape.setName("endPoint_" + ( i + 1 ));
 
 		// Add line and circle on artboard
