@@ -17,10 +17,10 @@ Chart is a Sketch plugin for creation the most popular charts by real or random 
 2. Draw Rectangle on Artboard. 
 3. Copy numeric or use random data. You can select a few strings of numbers 
 to create a few lines, areas, bars or sparklines. Supported formats:
-   — 10, 12, 14, 16;
-   — 5.3, 7.9, 15.3, 20.1;
-   — 25%, 30%, 10%, 35%;
-   — row in Google Sheets or Excel.
+   - 10, 12, 14, 16;
+   - 5.3, 7.9, 15.3, 20.1;
+   - 25%, 30%, 10%, 35%;
+   - row in Google Sheets or Excel.
 4. Select Rectangle on Sketch Artboard.
 5. Create Chart :-)
 
