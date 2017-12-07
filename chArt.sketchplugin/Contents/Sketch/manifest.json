@@ -3,7 +3,7 @@
   "description": "Create the most popular types of charts by real or random data",
   "author": "Pavel Kuligin",
   "authorEmail": "pavel.kuligin@behavox.com",
-  "version": 2.0,
+  "version": 2.1,
   "identifier": "com.sketchapp.examples.chart",
   "compatibleVersion": "46.2",
   "commands": [

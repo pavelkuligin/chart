@@ -56,6 +56,8 @@ var onRun = function(context){
 		} else {
 
 			var x = x0;
+			var xLast = x0;
+			var yLast = y0;
 
 			for (var j = 1; j < xItems; j++) {
 
@@ -63,10 +65,26 @@ var onRun = function(context){
 				var y = ( chartCanvas.frame().y() + heightCanvas ) - (( heightCanvas / dataMax ) * rows[i][j] );
 				line.lineToPoint(NSMakePoint(x,y));
 
-			};
+				if ( dots == true ){
+					var lineCircle = MSOvalShape.alloc().init();
+					lineCircle.frame = MSRect.rectWithRect(NSMakeRect(xLast - endWidth / 2,yLast - endWidth / 2,endWidth,endWidth));
+					var lineCircleShape = MSShapeGroup.shapeWithPath(lineCircle);
+					var fillCircle = lineCircleShape.style().addStylePartOfType(0);
+					fillCircle.color = MSColor.colorWithRed_green_blue_alpha(colorPalette[i][0]/255,colorPalette[i][1]/255,colorPalette[i][2]/255,1);
+					var borderCircle = lineCircleShape.style().addStylePartOfType(1);
+					borderCircle.color = MSColor.colorWithRed_green_blue_alpha(255/255,255/255,255/255,1);
+					borderCircle.thickness = borderThickness;
+					borderCircle.position = 2;
+					lineCircleShape.setName("a_linePoint_" + ( j ));
 
-			var xLast = x;
-			var yLast = y;
+					doc.currentPage().currentArtboard().addLayers([lineCircleShape]);
+					[lineCircleShape select:true byExpandingSelection:true];
+				}
+
+				xLast = x;
+				yLast = y;
+
+			};
 
 		};
 
