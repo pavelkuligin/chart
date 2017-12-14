@@ -75,6 +75,23 @@ Open `Parameter.js` in Chart.sketchplugin/Contents/Sketch/ and change plugin's p
 ```
 
 
+### Roadmap
+
+- [x] Line Chart
+- [x] Bar Chart
+- [x] Area Chart
+- [x] Stacked Area Chart
+- [x] Sparkline
+- [ ] New random data generation algorithm
+- [ ] Pie Chart
+- [ ] Donut Chart
+- [ ] Stream Graph
+- [ ] Candlestick Chart
+- [ ] Progress Bar
+- [ ] Bubble Chart
+
+
+
 ### Contact me
 
 If you have any questions or ideas about Chart, please, feel free to contact me:
