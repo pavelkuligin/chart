@@ -9,7 +9,7 @@ Chart is a Sketch plugin for creation the most popular charts by real or random 
 
 ### Usage
 
-<img width="600" height="375" src="images/usage.gif" title="How to use Chart">
+<img width="800" height="500" src="images/usage.gif" title="How to use Chart">
 
 **Steps**
 
