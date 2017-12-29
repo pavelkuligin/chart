@@ -17,13 +17,17 @@ var colorPalette = new Array();
 
 	colorPalette = [red, green, blue, yellow, purple, pink, amber, cian, deepPurple, teal, orange];
 
-var sparkColor = red;
+var sparkColor = [52,52,52];
 
 // Set parameters for lines
 var borderThickness = 2;
 var endWidth = 8;
-var dots = true;
+var dots = false;
+
+// Set parameters for donut
+var donutBorder = 40;
 
 // Set parameters for sparklines
 var borderThicknessSpark = 1;
 var endWidthSpark = 4;
+var sparkPointsCount = 20;

@@ -3,9 +3,9 @@
   "description": "Create the most popular types of charts by real or random data",
   "author": "Pavel Kuligin",
   "authorEmail": "pavel.kuligin@behavox.com",
-  "version": 2.1,
+  "version": 2.2,
   "identifier": "com.sketchapp.examples.chart",
-  "compatibleVersion": "46.2",
+  "compatibleVersion": "48.2",
   "commands": [
     {
       "name": "Line chart",
@@ -43,6 +43,20 @@
       "handler": "onRun"
     },
     {
+      "name": "Pie chart",
+      "identifier": "pieChart",
+      "shortcut": "",
+      "script": "pieChart.js",
+      "handler": "onRun"
+    },
+    {
+      "name": "Donut chart",
+      "identifier": "donutChart",
+      "shortcut": "",
+      "script": "donutChart.js",
+      "handler": "onRun"
+    },
+    {
       "name": "Sparkline",
       "identifier": "sparkLine",
       "shortcut": "",
@@ -52,7 +66,7 @@
   ],
   "menu": {
     "items": [
-      "lineChart", "barChartVertical", "barChartHorizontal", "areaChart", "stackedAreaChart", "sparkLine"
+      "lineChart", "barChartVertical", "barChartHorizontal", "areaChart", "stackedAreaChart", "pieChart", "donutChart", "sparkLine"
     ]
   }
 }

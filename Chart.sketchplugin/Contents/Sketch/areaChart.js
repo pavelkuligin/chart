@@ -2,6 +2,7 @@ var onRun = function(context){
 	var chartName = "Area chart";
 	var nameOne = "Areas";
 	var nameTwo = "Points";
+	var circleShape = false;
 	var stacked = false;
 	@import 'common.js'
 	@import 'parameters.js'

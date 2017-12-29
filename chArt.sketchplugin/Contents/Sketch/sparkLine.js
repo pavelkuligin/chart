@@ -1,8 +1,9 @@
 var onRun = function(context){
 	var chartName = "Sparkline";
+	var circleShape = false;
 	var stacked = false;
-	@import 'common.js'
 	@import 'parameters.js'
+	@import 'common.js'
 
 	// Set step by X between near points
 	var xStep = chartCanvas.frame().width() / ( xItems - 1 );

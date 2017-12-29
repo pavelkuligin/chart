@@ -2,6 +2,7 @@ var onRun = function(context){
 	var chartName = "Bar chart";
 	var nameOne = "Categories";
 	var nameTwo = "Bars";
+	var circleShape = false;
 	var stacked = true;
 	@import 'common.js'
 	@import 'parameters.js'

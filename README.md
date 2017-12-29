@@ -42,36 +42,39 @@ to create a few lines, areas, bars or sparklines. Supported formats:
 Open `Parameter.js` in Chart.sketchplugin/Contents/Sketch/ and change plugin's parameters as you want.
 
 ```javascript
-	// Type of line: straight — 0, curved — 1
-	var curveType = 1;
+// Type of line: straight — 0, curved — 1
+var curveType = 1;
 
-	// Set of colors for lines and areas
-	var colorPalette = new Array();
-		var red = [244,67,54];
-		var pink = [233,30,99];
-		var purple = [156,39,176];
-		var deepPurple = [103,58,183];
-		var blue = [33,150,243];
-		var cian = [0,188,212];
-		var teal = [0,150,136];
-		var green = [0,200,83];
-		var yellow = [255,235,59];
-		var amber = [255,193,7];
-		var orange = [255,152,0];
+// Set of colors for lines
+var colorPalette = new Array();
+	var red = [244,67,54];
+	var pink = [233,30,99];
+	var purple = [156,39,176];
+	var deepPurple = [103,58,183];
+	var blue = [33,150,243];
+	var cian = [0,188,212];
+	var teal = [0,150,136];
+	var green = [0,200,83];
+	var yellow = [255,235,59];
+	var amber = [255,193,7];
+	var orange = [255,152,0];
 
-		colorPalette = [red, green, blue, yellow, purple, pink, amber, cian, deepPurple, teal, orange];
+	colorPalette = [red, green, blue, yellow, purple, pink, amber, cian, deepPurple, teal, orange];
 
-	// Set color for Sparkline
-	var sparkColor = red;
+var sparkColor = [52,52,52];
 
-	// Set parameters for lines
-	var borderThickness = 2;
-	var endWidth = 8;
-	var dots = true;
+// Set parameters for lines
+var borderThickness = 2;
+var endWidth = 8;
+var dots = false;
 
-	// Set parameters for sparklines
-	var borderThicknessSpark = 1;
-	var endWidthSpark = 4;
+// Set parameters for donut
+var donutBorder = 40;
+
+// Set parameters for sparklines
+var borderThicknessSpark = 1;
+var endWidthSpark = 4;
+var sparkPointsCount = 20;
 ```
 
 
@@ -82,12 +85,12 @@ Open `Parameter.js` in Chart.sketchplugin/Contents/Sketch/ and change plugin's p
 - [x] Area Chart
 - [x] Stacked Area Chart
 - [x] Sparkline
-- [ ] New random data generation algorithm
-- [ ] Pie Chart
-- [ ] Donut Chart
-- [ ] Stream Graph
-- [ ] Candlestick Chart
-- [ ] Progress Bar
+- [x] New random data generation algorithm
+- [x] Pie Chart
+- [x] Donut Chart
+- [ ] Candlestick Chart (Feb 2018)
+- [ ] Stream Graph (Feb 2018)
+- [ ] Solid Gauge Chart (Feb 2018)
 - [ ] Bubble Chart
 
 
@@ -95,5 +98,5 @@ Open `Parameter.js` in Chart.sketchplugin/Contents/Sketch/ and change plugin's p
 ### Contact me
 
 If you have any questions or ideas about Chart, please, feel free to contact me:
-pavel.kuligin@behavox.com, www.pavelkuligin.ru or [facebook](https://www.facebook.com/profile.php?id=100008250510371)
+pavel.kuligin@behavox.com, www.pavelkuligin.ru or [facebook](https://www.facebook.com/kuligin.pavel)
 

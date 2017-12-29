@@ -1,5 +1,6 @@
 var onRun = function(context){
 	var chartName = "Stacked area chart";
+	var circleShape = false;
 	var nameOne = "Areas";
 	var nameTwo = "Points";
 	var stacked = true;

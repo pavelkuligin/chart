@@ -5,7 +5,7 @@ var page = [doc currentPage];
 var canvasCount = selection.length;
 
 if([selection count] == 0) {
-	[doc showMessage:"Select at least one rectangle layer"];
+	[doc showMessage:"Select rectangle or oval layer"];
 } else {
 
 	// Define type of input data: numeric or undefined
@@ -23,7 +23,7 @@ if([selection count] == 0) {
 		if (chartName == "Sparkline"){
 
 			var linesCount = canvasCount;
-			var pointsCount = 30;
+			var pointsCount = sparkPointsCount;
 
 		} else{
 
@@ -33,9 +33,11 @@ if([selection count] == 0) {
 			    categoriesInput.cell().setPlaceholderString(nameOne)
 			    accessoryView.addSubview(categoriesInput)
 
-		    var itemsInput = NSTextField.alloc().initWithFrame(NSMakeRect(140.0, 10.0, 120.0, 25.0))
-			    itemsInput.cell().setPlaceholderString(nameTwo)
-			    accessoryView.addSubview(itemsInput)
+			if ( nameTwo != false){
+			    var itemsInput = NSTextField.alloc().initWithFrame(NSMakeRect(140.0, 10.0, 120.0, 25.0))
+				    itemsInput.cell().setPlaceholderString(nameTwo)
+				    accessoryView.addSubview(itemsInput)
+			}
 
 		    var alert = NSAlert.alloc().init()
 			    alert.setMessageText("Create random data for chart")
@@ -44,14 +46,21 @@ if([selection count] == 0) {
 			    alert.addButtonWithTitle("Cancel")
 
 		    [[alert window] setInitialFirstResponder:categoriesInput]
-		    [categoriesInput setNextKeyView:itemsInput]
+
+		    if (nameTwo != false){
+		    	[categoriesInput setNextKeyView:itemsInput]
+			}
 
 			// Run popup
 			var responseCode = alert.runModal();
 
-			// Create random data array
-			var linesCount = categoriesInput.stringValue();
-			var pointsCount = itemsInput.stringValue();
+			if (nameTwo != false){
+				var linesCount = categoriesInput.stringValue();
+				var pointsCount = itemsInput.stringValue();
+			} else {
+				var pointsCount = categoriesInput.stringValue();
+				var linesCount = canvasCount;
+			}
 
 		};
 
@@ -59,37 +68,57 @@ if([selection count] == 0) {
 			var numItems = linesCount;
 		} else { var numItems = 1; }
 
+		// Create random array
 		var dataMax = 100;
 		var rowsLength = linesCount;
-		var hor = 80 * Math.random();
+		var hor = 100 * Math.random();
 		var rows = new Array();
-		for (var i = 0; i < linesCount; i++){
-			var row = new Array();
-			rows[i] = row;
-			var funcOne = Math.round(Math.random() * 3);
-			var funcTwo = Math.round(Math.random() * 3);
 
-			for (var j = 0; j < pointsCount; j++){
-				// Set of functions for random distribution
-				var randomFunc = new Array();
-					var logInc = 10 + 10 * Math.log(10 * j + 1) + 20 * Math.random();
-					var logDec = 100 / Math.log(5 * j + 3.4)+ 20 * Math.random();
-					var lineStr = hor + 10 * Math.random();
-					var lineInc = j * (80 / pointsCount) + 20 * Math.random();
-					var lineDec = 80 - j * (0.75 / pointsCount) + 20 * Math.random();
-					randomFunc = [logInc, logDec, lineStr, lineInc, lineDec];
+		if( circleShape == true ){
 
-				if (j < pointsCount * 0.8 * Math.random()){
+				var row = new Array();
+				rows[0] = row;
+				var startRandNumber = 40;
+				var counterNumber = 0; 
 
-					rows[i][j] = randomFunc[funcOne] / numItems;
-
-				} else {
-
-					rows[i][j] = randomFunc[funcTwo] / numItems;
-
+				for (var j = 0; j < pointsCount - 1; j++){
+					rows[0][j] = Math.round(Math.random() * (dataMax - startRandNumber));
+					counterNumber = counterNumber + rows[0][j];
+					startRandNumber = counterNumber;
 				}
-			};
-		};
+
+				rows[0][pointsCount - 1] = dataMax - counterNumber;
+			
+		} else {
+			
+			for (var i = 0; i < linesCount; i++){
+				var row = new Array();
+				rows[i] = row;
+				var funcOne = Math.round(Math.random() * 4);
+				var funcTwo = Math.round(Math.random() * 4);
+
+				for (var j = 0; j < pointsCount; j++){
+					// Set of functions for random distribution
+					var randomFunc = new Array();
+						var logInc = 10 + 10 * Math.log(10 * j + 1) + 20 * Math.random();
+						var logDec = 100 / Math.log(5 * j + 3.4)+ 20 * Math.random();
+						var lineStr = hor + 10 * Math.random();
+						var lineInc = j * (80 / pointsCount) + 20 * Math.random();
+						var lineDec = 80 - j * (0.75 / pointsCount) + 20 * Math.random();
+						randomFunc = [logInc, logDec, lineStr, lineInc, lineDec];
+
+					if (j < pointsCount * Math.random()){
+
+						rows[i][j] = randomFunc[funcOne] / numItems;
+
+					} else {
+
+							rows[i][j] = randomFunc[funcTwo] / numItems;
+
+						}
+				};
+			}
+		}
 
 	} else {
 

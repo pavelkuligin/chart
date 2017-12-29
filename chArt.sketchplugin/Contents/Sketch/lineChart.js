@@ -2,6 +2,7 @@ var onRun = function(context){
 	var chartName = "Line chart";
 	var nameOne = "Lines";
 	var nameTwo = "Points";
+	var circleShape = false;
 	var stacked = false;
 	@import 'common.js'
 	@import 'parameters.js'
