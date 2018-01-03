@@ -93,6 +93,10 @@ var sparkPointsCount = 20;
 - [ ] Solid Gauge Chart (Feb 2018)
 - [ ] Bubble Chart
 
+### Support Chart
+
+If Chart saves your time and you want more new features, [support me via PayPal](https://www.paypal.me/pavelkuligin/5usd).
+
 
 
 ### Contact me
