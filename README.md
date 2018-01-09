@@ -13,8 +13,8 @@ Chart is a Sketch plugin for creation the most popular charts by real or random 
 
 **Steps**
 
-2. Draw Rectangle. 
-3. Copy numeric or use random data. You can select a few strings of numbers 
+1. Draw Rectangle. 
+2. Copy numeric or use random data. You can select a few strings of numbers 
 to create a few lines, areas, bars or sparklines. Supported formats:
    - 10, 12, 14, 16;
    - 5.3, 7.9, 15.3, 20.1;
@@ -22,8 +22,8 @@ to create a few lines, areas, bars or sparklines. Supported formats:
    - row in Google Sheets or Excel:
    <img width="800" height="500" src="images/googlesheets.gif" title="Data from Google Sheets">
 
-4. Select Rectangle.
-5. Create Chart using Plugins menu or Sketch Runner :-)
+3. Select Rectangle.
+4. Create Chart using Plugins menu or Sketch Runner :-)
 
 
 ### Install
