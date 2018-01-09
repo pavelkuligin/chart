@@ -46,7 +46,11 @@ var onRun = function(context){
 					borderCircle.position = 2;
 					lineCircleShape.setName("a_linePoint_" + ( j ));
 
-					doc.currentPage().currentArtboard().addLayers([lineCircleShape]);
+					if (doc.currentPage().currentArtboard() === null){
+						doc.currentPage().addLayers([lineCircleShape]);
+					} else{
+						doc.currentPage().currentArtboard().addLayers([lineCircleShape]);	
+					}
 					[lineCircleShape select:true byExpandingSelection:true];
 				}
 
@@ -78,7 +82,11 @@ var onRun = function(context){
 					borderCircle.position = 2;
 					lineCircleShape.setName("a_linePoint_" + ( j ));
 
-					doc.currentPage().currentArtboard().addLayers([lineCircleShape]);
+					if (doc.currentPage().currentArtboard() === null){
+						doc.currentPage().addLayers([lineCircleShape]);
+					} else{
+						doc.currentPage().currentArtboard().addLayers([lineCircleShape]);
+					}
 					[lineCircleShape select:true byExpandingSelection:true];
 				}
 
@@ -109,8 +117,16 @@ var onRun = function(context){
 		circleShape.setName("endPoint_" + ( i + 1 ));
 
 		// Add line and circle on artboard
-		doc.currentPage().currentArtboard().addLayers([lineShape]);
-		doc.currentPage().currentArtboard().addLayers([circleShape]);
+		if (doc.currentPage().currentArtboard() === null){
+			doc.currentPage().addLayers([lineShape]);
+		} else{
+			doc.currentPage().currentArtboard().addLayers([lineShape]);
+		}
+		if (doc.currentPage().currentArtboard() === null){
+			doc.currentPage().addLayers([circleShape]);
+		} else{
+			doc.currentPage().currentArtboard().addLayers([circleShape]);
+		}
 
 		[lineShape select:true byExpandingSelection:true];
 		[circleShape select:true byExpandingSelection:true];

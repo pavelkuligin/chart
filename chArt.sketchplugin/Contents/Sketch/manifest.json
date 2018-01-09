@@ -1,15 +1,17 @@
 {
-  "name": "Chart",
+  "name": "📈 Chart",
   "description": "Create the most popular types of charts by real or random data",
   "author": "Pavel Kuligin",
   "authorEmail": "pavel.kuligin@behavox.com",
-  "version": 2.2,
+  "version": 2.3,
   "identifier": "com.sketchapp.examples.chart",
   "compatibleVersion": "48.2",
   "commands": [
     {
       "name": "Line chart",
       "identifier": "lineChart",
+      "description" : "Create Line chart by real or random data",
+      "icon" : "icons/linechart.png",
       "shortcut": "",
       "script": "lineChart.js",
       "handler": "onRun"
@@ -17,6 +19,8 @@
     {
       "name": "Vertical Bar chart",
       "identifier": "barChartVertical",
+      "description" : "Create Vertical Bar chart by real or random data",
+      "icon" : "icons/vbarchart.png",
       "shortcut": "",
       "script": "barChartVertical.js",
       "handler": "onRun"
@@ -24,6 +28,8 @@
     {
       "name": "Horizontal Bar chart",
       "identifier": "barChartHorizontal",
+      "description" : "Create Horizontal Bar chart by real or random data",
+      "icon" : "icons/hbarchart.png",
       "shortcut": "",
       "script": "barChartHorizontal.js",
       "handler": "onRun"
@@ -31,6 +37,8 @@
     {
       "name": "Area chart",
       "identifier": "areaChart",
+      "description" : "Create Area chart by real or random data",
+      "icon" : "icons/areachart.png",
       "shortcut": "",
       "script": "areaChart.js",
       "handler": "onRun"
@@ -38,6 +46,8 @@
     {
       "name": "Stacked area chart",
       "identifier": "stackedAreaChart",
+      "description" : "Create Stacked Area chart by real or random data",
+      "icon" : "icons/stackedareachart.png",
       "shortcut": "",
       "script": "stackedAreaChart.js",
       "handler": "onRun"
@@ -45,6 +55,8 @@
     {
       "name": "Pie chart",
       "identifier": "pieChart",
+      "description" : "Create Pie chart by real or random data",
+      "icon" : "icons/piechart.png",
       "shortcut": "",
       "script": "pieChart.js",
       "handler": "onRun"
@@ -52,6 +64,8 @@
     {
       "name": "Donut chart",
       "identifier": "donutChart",
+      "description" : "Create Donut chart by real or random data",
+      "icon" : "icons/donutchart.png",
       "shortcut": "",
       "script": "donutChart.js",
       "handler": "onRun"
@@ -59,12 +73,15 @@
     {
       "name": "Sparkline",
       "identifier": "sparkLine",
+      "description" : "Create Sparkline by real or random data",
+      "icon" : "icons/sparklines.png",
       "shortcut": "",
       "script": "sparkLine.js",
       "handler": "onRun"
     }
   ],
   "menu": {
+    "title": "📈 Chart",
     "items": [
       "lineChart", "barChartVertical", "barChartHorizontal", "areaChart", "stackedAreaChart", "pieChart", "donutChart", "sparkLine"
     ]

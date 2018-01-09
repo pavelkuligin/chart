@@ -103,7 +103,11 @@ var onRun = function(context){
 		areaShape.setName("stackedArea_" + ( i + 1 ));
 
 		// Add areaShape on artboard
-		doc.currentPage().currentArtboard().addLayers([areaShape]);
+		if (doc.currentPage().currentArtboard() === null){
+			doc.currentPage().addLayers([areaShape]);
+		} else{
+			doc.currentPage().currentArtboard().addLayers([areaShape]);
+		}
 		[areaShape select:true byExpandingSelection:true];
 
 		};

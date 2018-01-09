@@ -56,7 +56,11 @@ var onRun = function(context){
 			barShape.setName("bar_" + ( i + 1 ) + ( j + 1));
 
 			// Add bar on artboard
-			doc.currentPage().currentArtboard().addLayers([barShape]);
+			if (doc.currentPage().currentArtboard() === null){
+				doc.currentPage().addLayers([barShape]);
+			} else{
+				doc.currentPage().currentArtboard().addLayers([barShape]);
+			}
 			[barShape select:true byExpandingSelection:true];
 
 			n = 1;

@@ -45,7 +45,11 @@ var onRun = function(context){
 
 
 		// Add arc on artboard
-		doc.currentPage().currentArtboard().addLayers([arcShape]);
+		if (doc.currentPage().currentArtboard() === null){
+			doc.currentPage().addLayers([arcShape]);
+		} else{
+			doc.currentPage().currentArtboard().addLayers([arcShape]);
+		}
 
 		[arcShape select:true byExpandingSelection:true];
 

@@ -50,8 +50,17 @@ var onRun = function(context){
 		circleShape.setName("EndPoint_" + ( i + 1 ));
 
 		// Add line and circle on artboard
-		doc.currentPage().currentArtboard().addLayers([lineShape]);
-		doc.currentPage().currentArtboard().addLayers([circleShape]);
+		if (doc.currentPage().currentArtboard() === null){
+			doc.currentPage().addLayers([lineShape]);
+		} else{
+			doc.currentPage().currentArtboard().addLayers([lineShape]);
+		}
+
+		if (doc.currentPage().currentArtboard() === null){
+			doc.currentPage().addLayers([circleShape]);
+		} else{
+			doc.currentPage().currentArtboard().addLayers([circleShape]);
+		}
 
 		var sparkLinesGroup = new Array(selection[i], lineShape, circleShape);
 

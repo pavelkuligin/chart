@@ -13,16 +13,17 @@ Chart is a Sketch plugin for creation the most popular charts by real or random 
 
 **Steps**
 
-1. Create Artboard in Sketch file.
-2. Draw Rectangle on Artboard. 
+2. Draw Rectangle. 
 3. Copy numeric or use random data. You can select a few strings of numbers 
 to create a few lines, areas, bars or sparklines. Supported formats:
    - 10, 12, 14, 16;
    - 5.3, 7.9, 15.3, 20.1;
    - 25%, 30%, 10%, 35%;
-   - row in Google Sheets or Excel.
-4. Select Rectangle on Sketch Artboard.
-5. Create Chart :-)
+   - row in Google Sheets or Excel:
+   <img width="800" height="500" src="images/googlesheets.gif" title="Data from Google Sheets">
+
+4. Select Rectangle.
+5. Create Chart using Plugins menu or Sketch Runner :-)
 
 
 ### Install
@@ -88,10 +89,11 @@ var sparkPointsCount = 20;
 - [x] New random data generation algorithm
 - [x] Pie Chart
 - [x] Donut Chart
-- [ ] Candlestick Chart (Feb 2018)
+- [ ] Progress Bar (Jan 2018)
+- [ ] Solid Gauge Chart (Jan 2018)
+- [ ] Bubble Chart (Feb 2018)
 - [ ] Stream Graph (Feb 2018)
-- [ ] Solid Gauge Chart (Feb 2018)
-- [ ] Bubble Chart
+- [ ] Candlestick Chart (Mar 2018)
 
 ### Support Chart
 

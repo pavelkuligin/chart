@@ -1,5 +1,9 @@
 // Push all selected layers to array
-var allLayers = doc.currentPage().currentArtboard().layers();
+if (doc.currentPage().currentArtboard() === null){
+	var allLayers = doc.currentPage().layers();
+} else{
+	var allLayers = doc.currentPage().currentArtboard().layers();	
+}
 var layersCount = allLayers.count();
 var selectedLayers = new Array();
 var sortedLayers = new Array();
