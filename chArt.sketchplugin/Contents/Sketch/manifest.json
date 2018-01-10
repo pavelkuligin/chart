@@ -71,6 +71,15 @@
       "handler": "onRun"
     },
     {
+      "name": "Progress Bar",
+      "identifier": "progressBar",
+      "description" : "Create Progress Bar by real or random data",
+      "icon" : "icons/progressbar.png",
+      "shortcut": "",
+      "script": "progressBar.js",
+      "handler": "onRun"
+    },
+    {
       "name": "Sparkline",
       "identifier": "sparkLine",
       "description" : "Create Sparkline by real or random data",
@@ -78,12 +87,21 @@
       "shortcut": "",
       "script": "sparkLine.js",
       "handler": "onRun"
+    },
+    {
+      "name": "Solid Gauge Chart",
+      "identifier": "gaugeChart",
+      "description" : "Create Solid Gauge Chart by real or random data",
+      "icon" : "icons/gaugechart.png",
+      "shortcut": "",
+      "script": "gaugeChart.js",
+      "handler": "onRun"
     }
   ],
   "menu": {
     "title": "📈 Chart",
     "items": [
-      "lineChart", "barChartVertical", "barChartHorizontal", "areaChart", "stackedAreaChart", "pieChart", "donutChart", "sparkLine"
+      "lineChart", "barChartVertical", "barChartHorizontal", "areaChart", "stackedAreaChart", "pieChart", "donutChart", "progressBar", "sparkLine", "gaugeChart"
     ]
   }
 }

@@ -74,6 +74,11 @@ var donutBorder = 40;
 var progressBarBorder = 12;
 var progressBarColor = [244,67,54];
 
+// Set parameters for gauge chart
+var gaugeChartBorder = 40;
+var gaugeChartColor = [156,39,176];
+var gaugeChartBackcolor = [236,236,236];
+
 // Set parameters for sparklines
 var borderThicknessSpark = 1;
 var endWidthSpark = 4;
@@ -92,7 +97,7 @@ var sparkPointsCount = 20;
 - [x] Pie Chart
 - [x] Donut Chart
 - [x] Progress Bar
-- [ ] Solid Gauge Chart (Jan 2018)
+- [x] Solid Gauge Chart
 - [ ] Bubble Chart (Feb 2018)
 - [ ] Stream Graph (Feb 2018)
 - [ ] Candlestick Chart (Mar 2018)

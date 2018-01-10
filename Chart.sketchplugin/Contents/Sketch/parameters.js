@@ -27,6 +27,15 @@ var dots = false;
 // Set parameters for donut
 var donutBorder = 40;
 
+// Set parameters for progress bar
+var progressBarBorder = 12;
+var progressBarColor = [244,67,54];
+
+// Set parameters for gauge chart
+var gaugeChartBorder = 12;
+var gaugeChartColor = [156,39,176];
+var gaugeChartBackcolor = [236,236,236];
+
 // Set parameters for sparklines
 var borderThicknessSpark = 1;
 var endWidthSpark = 4;

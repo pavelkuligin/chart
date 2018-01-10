@@ -25,6 +25,11 @@ if([selection count] == 0) {
 			var linesCount = canvasCount;
 			var pointsCount = sparkPointsCount;
 
+		} else if (chartName == "Progress Bar" || "Gauge Chart"){
+
+			var linesCount = canvasCount;
+			var pointsCount = 1;
+
 		} else{
 
 			var accessoryView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 40.0))
