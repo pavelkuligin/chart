@@ -52,7 +52,7 @@ var onRun = function(context){
 
 			var barShape = NSBezierPath.bezierPath();
 			barShape.moveToPoint(NSMakePoint(x0,y0));
-			barShape.lineToPoint(NSMakePoint(x0 + progressBar,y0));
+			barShape.lineToPoint(NSMakePoint(x0 + progressBar - progressHeight,y0));
 
 			// Create shape from path
 			var barShape = MSShapeGroup.shapeWithBezierPath(barShape);

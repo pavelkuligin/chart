@@ -25,7 +25,12 @@ if([selection count] == 0) {
 			var linesCount = canvasCount;
 			var pointsCount = sparkPointsCount;
 
-		} else if (chartName == "Progress Bar" || "Gauge Chart"){
+		} else if (chartName == "Progress Bar"){
+
+			var linesCount = canvasCount;
+			var pointsCount = 1;
+
+		} else if (chartName == "Gauge Chart"){
 
 			var linesCount = canvasCount;
 			var pointsCount = 1;
