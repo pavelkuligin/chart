@@ -5,38 +5,37 @@ Chart is a Sketch plugin for creation the most popular charts by real or random 
 [Read more on Medium](https://medium.com/@pavelkuligin/chart-the-most-powerful-data-visualization-plugin-for-sketch-6849155e09ab)
 
 
-### Usage
+# Usage
 
 <img width="800" height="500" src="images/usage.gif" title="How to use Chart">
 
-**Steps**
+## Steps
 
-1. Draw Rectangle. 
+1. Draw Rectangle or Oval. 
 2. Copy numeric or use random data. You can select a few strings of numbers 
-to create a few lines, areas, bars or sparklines. Supported formats:
+to create a few lines, areas, bars, sparklines or progress bars. Supported formats:
    - 10, 12, 14, 16;
    - 5.3, 7.9, 15.3, 20.1;
    - 25%, 30%, 10%, 35%;
-   - row in Google Sheets or Excel:
-   <img width="800" height="500" src="images/googlesheets.gif" title="Data from Google Sheets">
+   - row in Google Sheets or Excel.
 
 3. Select Rectangle.
 4. Create Chart using Plugins menu or Sketch Runner :-)
 
 
-### Install
+# Install
 
-**Via Sketchpacks**
+## Via Sketchpacks
 
 [![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Chart with Sketchpacks")](https://sketchpacks.com/pavelkuligin/chart/install)
 
-**Or manually**
+## Or manually
 
 1. Download and unzip: [chart-master.zip](https://github.com/pavelkuligin/chart/archive/master.zip).
 2. Double click `Chart.sketchplugin`.
 
 
-### Parameters
+# Parameters
 
 Open `Parameter.js` in Chart.sketchplugin/Contents/Sketch/ and change plugin's parameters as you want.
 
@@ -86,7 +85,7 @@ var sparkPointsCount = 20;
 ```
 
 
-### Roadmap
+# Roadmap
 
 - [x] Line Chart
 - [x] Bar Chart
@@ -102,13 +101,13 @@ var sparkPointsCount = 20;
 - [ ] Stream Graph (Feb 2018)
 - [ ] Candlestick Chart (Mar 2018)
 
-### Support Chart
+# Support Chart
 
 If Chart saves your time and you want more new features, [support me via PayPal](https://www.paypal.me/pavelkuligin/5usd).
 
 
 
-### Contact me
+# Contact me
 
 If you have any questions or ideas about Chart, please, feel free to contact me:
 pavel.kuligin@behavox.com, www.pavelkuligin.ru or [facebook](https://www.facebook.com/kuligin.pavel)
