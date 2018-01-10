@@ -70,6 +70,10 @@ var dots = false;
 // Set parameters for donut
 var donutBorder = 40;
 
+// Set parameters for progress bar
+var progressBarBorder = 12;
+var progressBarColor = [244,67,54];
+
 // Set parameters for sparklines
 var borderThicknessSpark = 1;
 var endWidthSpark = 4;
@@ -87,7 +91,7 @@ var sparkPointsCount = 20;
 - [x] New random data generation algorithm
 - [x] Pie Chart
 - [x] Donut Chart
-- [ ] Progress Bar (Jan 2018)
+- [x] Progress Bar
 - [ ] Solid Gauge Chart (Jan 2018)
 - [ ] Bubble Chart (Feb 2018)
 - [ ] Stream Graph (Feb 2018)
