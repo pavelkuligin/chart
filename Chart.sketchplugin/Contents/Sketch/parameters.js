@@ -32,7 +32,7 @@ var progressBarBorder = 12;
 var progressBarColor = [244,67,54];
 
 // Set parameters for gauge chart
-var gaugeChartBorder = 12;
+var gaugeChartBorder = 40;
 var gaugeChartColor = [156,39,176];
 var gaugeChartBackcolor = [236,236,236];
 
