@@ -4,7 +4,7 @@
   "author": "Pavel Kuligin",
   "authorEmail": "pavel.kuligin@behavox.com",
   "homepage": "https://github.com/pavelkuligin/chart",
-  "version": 2.4,
+  "version": 2.5,
   "identifier": "com.sketchapp.examples.chart",
   "appcast": "https://raw.githubusercontent.com/pavelkuligin/chart/master/appcast.xml",
   "compatibleVersion": "48.2",
@@ -52,6 +52,15 @@
       "icon" : "icons/stackedareachart.png",
       "shortcut": "",
       "script": "stackedAreaChart.js",
+      "handler": "onRun"
+    },
+    {
+      "name": "Stream graph",
+      "identifier": "streamGraph",
+      "description" : "Create Stream graph by real or random data",
+      "icon" : "icons/streamgraph.png",
+      "shortcut": "",
+      "script": "streamGraph.js",
       "handler": "onRun"
     },
     {
@@ -103,7 +112,7 @@
   "menu": {
     "title": "📈 Chart",
     "items": [
-      "lineChart", "barChartVertical", "barChartHorizontal", "areaChart", "stackedAreaChart", "pieChart", "donutChart", "progressBar", "sparkLine", "gaugeChart"
+      "lineChart", "barChartVertical", "barChartHorizontal", "areaChart", "stackedAreaChart", "streamGraph", "pieChart", "donutChart", "progressBar", "sparkLine", "gaugeChart"
     ]
   }
 }

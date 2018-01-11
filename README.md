@@ -94,8 +94,8 @@ var sparkPointsCount = 20;
 - [x] Donut Chart
 - [x] Progress Bar
 - [x] Solid Gauge Chart
+- [x] Stream Graph
 - [ ] Bubble Chart (Feb 2018)
-- [ ] Stream Graph (Feb 2018)
 - [ ] Candlestick Chart (Mar 2018)
 
 ### Support Chart

@@ -1,5 +1,5 @@
 var onRun = function(context){
-	var chartName = "Stacked area chart";
+	var chartName = "Stream graph";
 	var circleShape = false;
 	var nameOne = "Areas";
 	var nameTwo = "Points";
@@ -14,6 +14,29 @@ var onRun = function(context){
 	};
 	rows.unshift(zeroArray);
 	rowsLength = rows.length;
+
+	var colSum = 0;
+
+	for (var i = 0; i < xItems; i++){
+
+		for (var j = 0; j < rowsLength; j++){
+
+			colSum = colSum + rows[j][i];
+
+		}
+
+		streamAdd = (dataMax - colSum) / 2;
+
+		for (var k = 0; k < 1; k++){
+
+			rows[k][i] = rows[k][i] + streamAdd;
+
+		}
+
+		colSum = 0;
+
+	}
+
 
 	// Set step by X between near points
 	var xStep = chartCanvas.frame().width() / ( xItems - 1 );
