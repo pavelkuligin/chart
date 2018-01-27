@@ -7,6 +7,14 @@ var onRun = function(context){
 	@import 'common.js'
 	@import 'parameters.js'
 
+	if (negativeArray.length > 0 && negCounter < rowLength * rowsLength) {
+		for (var i = 0; i < rowsLength; i++){
+			for (var j = 0; j < rowLength; j++){
+				rows[i][j] = rows[i][j] + maxNegativeNum + (dataMax - roundDataMax) / 2;
+			}
+		}
+	}
+
 	// Set step by X between near points
 	var xStep = chartCanvas.frame().width() / ( xItems - 1 );
 
@@ -16,7 +24,11 @@ var onRun = function(context){
 	for (var i = 0; i < rowsLength; i++){
 
 		// Set first Y-point of line
-		var y0 = ( chartCanvas.frame().y() + heightCanvas ) - (( heightCanvas / dataMax ) * rows[i][0] );
+		if (negativeFlip == false) {
+			var y0 = ( chartCanvas.frame().y() + heightCanvas ) - (( heightCanvas / dataMax ) * rows[i][0] );
+		} else {
+			var y0 = ( chartCanvas.frame().y()) - (( heightCanvas / dataMax ) * rows[i][0] );
+		}
 
 		// Create line chart
 		var line = NSBezierPath.bezierPath();
@@ -30,7 +42,12 @@ var onRun = function(context){
 			for (var j = 1; j < xItems; j++) {
 
 				xNext = xLast + xStep;
-				var y = ( chartCanvas.frame().y() + heightCanvas ) - (( heightCanvas / dataMax ) * rows[i][j] );
+
+				if (negativeFlip == false) {
+					var y = ( chartCanvas.frame().y() + heightCanvas ) - (( heightCanvas / dataMax ) * rows[i][j] );
+				} else {
+					var y = ( chartCanvas.frame().y() ) - (( heightCanvas / dataMax ) * rows[i][j] );
+				}
 
 				[line curveToPoint:NSMakePoint(xNext,y) controlPoint1:NSMakePoint(xLast + xStep / 2,yLast) controlPoint2:NSMakePoint(xNext - xStep / 2,y)];
 
@@ -39,11 +56,23 @@ var onRun = function(context){
 					lineCircle.frame = MSRect.rectWithRect(NSMakeRect(xLast - endWidth / 2,yLast - endWidth / 2,endWidth,endWidth));
 					var lineCircleShape = MSShapeGroup.shapeWithPath(lineCircle);
 					var fillCircle = lineCircleShape.style().addStylePartOfType(0);
-					fillCircle.color = MSColor.colorWithRed_green_blue_alpha(colorPalette[i][0]/255,colorPalette[i][1]/255,colorPalette[i][2]/255,1);
+
+					if (cuttedCenter == true) {
+						fillCircle.color = MSColor.colorWithRed_green_blue_alpha(dotFillR/255, dotFillG/255, dotFillB/255,1);
+					} else {
+						fillCircle.color = MSColor.colorWithRed_green_blue_alpha(colorPalette[i][0]/255,colorPalette[i][1]/255,colorPalette[i][2]/255,1);
+					}
+
 					var borderCircle = lineCircleShape.style().addStylePartOfType(1);
-					borderCircle.color = MSColor.colorWithRed_green_blue_alpha(255/255,255/255,255/255,1);
+
+					if (cuttedCenter == true) {
+						borderCircle.color = MSColor.colorWithRed_green_blue_alpha(colorPalette[i][0]/255,colorPalette[i][1]/255,colorPalette[i][2]/255,1);
+					} else {
+						borderCircle.color = MSColor.colorWithRed_green_blue_alpha(dotBorderR/255, dotBorderG/255, dotBorderB/255, 1);
+					}
+
 					borderCircle.thickness = borderThickness;
-					borderCircle.position = 2;
+					if (cuttedCenter == true) {borderCircle.position = 1;} else {borderCircle.position = 2;}
 					lineCircleShape.setName("a_linePoint_" + ( j ));
 
 					if (doc.currentPage().currentArtboard() === null){
@@ -67,7 +96,13 @@ var onRun = function(context){
 			for (var j = 1; j < xItems; j++) {
 
 				x = x + xStep;
-				var y = ( chartCanvas.frame().y() + heightCanvas ) - (( heightCanvas / dataMax ) * rows[i][j] );
+				
+				if (negativeFlip == false) {
+					var y = ( chartCanvas.frame().y() + heightCanvas ) - (( heightCanvas / dataMax ) * rows[i][j] );
+				} else {
+					var y = ( chartCanvas.frame().y() ) - (( heightCanvas / dataMax ) * rows[i][j] );
+				}
+
 				line.lineToPoint(NSMakePoint(x,y));
 
 				if ( dots == true ){
@@ -75,11 +110,23 @@ var onRun = function(context){
 					lineCircle.frame = MSRect.rectWithRect(NSMakeRect(xLast - endWidth / 2,yLast - endWidth / 2,endWidth,endWidth));
 					var lineCircleShape = MSShapeGroup.shapeWithPath(lineCircle);
 					var fillCircle = lineCircleShape.style().addStylePartOfType(0);
-					fillCircle.color = MSColor.colorWithRed_green_blue_alpha(colorPalette[i][0]/255,colorPalette[i][1]/255,colorPalette[i][2]/255,1);
+
+					if (cuttedCenter == true) {
+						fillCircle.color = MSColor.colorWithRed_green_blue_alpha(dotFillR/255, dotFillG/255, dotFillB/255,1);
+					} else {
+						fillCircle.color = MSColor.colorWithRed_green_blue_alpha(colorPalette[i][0]/255,colorPalette[i][1]/255,colorPalette[i][2]/255,1);
+					}
+
 					var borderCircle = lineCircleShape.style().addStylePartOfType(1);
-					borderCircle.color = MSColor.colorWithRed_green_blue_alpha(255/255,255/255,255/255,1);
+
+					if (cuttedCenter == true) {
+						borderCircle.color = MSColor.colorWithRed_green_blue_alpha(colorPalette[i][0]/255,colorPalette[i][1]/255,colorPalette[i][2]/255,1);
+					} else {
+						borderCircle.color = MSColor.colorWithRed_green_blue_alpha(dotBorderR/255, dotBorderG/255, dotBorderB/255, 1);
+					}
+
 					borderCircle.thickness = borderThickness;
-					borderCircle.position = 2;
+					if (cuttedCenter == true) {borderCircle.position = 1;} else {borderCircle.position = 2;}
 					lineCircleShape.setName("a_linePoint_" + ( j ));
 
 					if (doc.currentPage().currentArtboard() === null){
@@ -109,11 +156,23 @@ var onRun = function(context){
 		endCircle.frame = MSRect.rectWithRect(NSMakeRect(xLast - endWidth / 2,yLast - endWidth / 2,endWidth,endWidth));
 		var circleShape = MSShapeGroup.shapeWithPath(endCircle);
 		var fill = circleShape.style().addStylePartOfType(0);
-		fill.color = MSColor.colorWithRed_green_blue_alpha(colorPalette[i][0]/255,colorPalette[i][1]/255,colorPalette[i][2]/255,1);
+
+		if (cuttedCenter == true) {
+			fill.color = MSColor.colorWithRed_green_blue_alpha(dotFillR/255, dotFillG/255, dotFillB/255,1);
+		} else {
+			fill.color = MSColor.colorWithRed_green_blue_alpha(colorPalette[i][0]/255,colorPalette[i][1]/255,colorPalette[i][2]/255,1);
+		}
+
 		var borderEnd = circleShape.style().addStylePartOfType(1);
-		borderEnd.color = MSColor.colorWithRed_green_blue_alpha(255/255,255/255,255/255,1);
+
+		if (cuttedCenter == true) {
+			borderEnd.color = MSColor.colorWithRed_green_blue_alpha(colorPalette[i][0]/255,colorPalette[i][1]/255,colorPalette[i][2]/255,1);
+		} else {
+			borderEnd.color = MSColor.colorWithRed_green_blue_alpha(dotBorderR/255, dotBorderG/255, dotBorderB/255, 1);
+		}
+
 		borderEnd.thickness = borderThickness;
-		borderEnd.position = 2;
+		if (cuttedCenter == true) {borderEnd.position = 1;} else {borderEnd.position = 2;}
 		circleShape.setName("endPoint_" + ( i + 1 ));
 
 		// Add line and circle on artboard

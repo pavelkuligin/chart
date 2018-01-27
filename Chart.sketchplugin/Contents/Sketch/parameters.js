@@ -17,26 +17,39 @@ var colorPalette = new Array();
 
 	colorPalette = [red, green, blue, yellow, purple, pink, amber, cian, deepPurple, teal, orange];
 
-var sparkColor = [52,52,52];
-
-// Set parameters for lines
+// Parameters for Lines
 var borderThickness = 2;
 var endWidth = 8;
 var dots = false;
+var cuttedCenter = false; // false — color of dot the same as line color; true — you can choose color of dot below;
+var dotFillR = 255;
+var dotFillG = 255;
+var dotFillB = 255;  
+// Color for border of dot. Use: dotBorderR = colorPalette[i][0], dotBorderG = colorPalette[i][1], dotBorderB = colorPalette[i][2] to fill border with color of line;
+var dotBorderR = 255;
+var dotBorderG = 255;
+var dotBorderB = 255; 
 
-// Set parameters for donut
+// Parameters for Areas
+var areaOpacity = 0.8; 
+
+// Parameters for Bars
+var barWidthParam = 0.2; // The larger the parameter, the thinner the bar;
+
+// Parameters for Donut
 var donutBorder = 30;
 
-// Set parameters for progress bar
+// Parameters for Progress bar
 var progressBarBorder = 12;
 var progressBarColor = [244,67,54];
 
-// Set parameters for gauge chart
+// Parameters for Gauge chart
 var gaugeChartBorder = 30;
 var gaugeChartColor = [156,39,176];
 var gaugeChartBackcolor = [236,236,236];
 
-// Set parameters for sparklines
+// Parameters for Sparklines
+var sparkColor = [52,52,52];
 var borderThicknessSpark = 1;
 var endWidthSpark = 4;
 var sparkPointsCount = 20;

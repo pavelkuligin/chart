@@ -24,7 +24,12 @@ var onRun = function(context){
 	// Set height of area
 	var yHeight = new Array(xItems);
 	for (var i = 0; i < xItems; i++){
-		yHeight[i] = ( chartCanvas.frame().y() + heightCanvas ) - (( heightCanvas / dataMax ) * rows[0][i] );
+		if (negativeFlip == false) {
+			yHeight[i] = ( chartCanvas.frame().y() + heightCanvas ) - (( heightCanvas / dataMax ) * rows[0][i] );
+		} else {
+			yHeight[i] = ( chartCanvas.frame().y()) - (( heightCanvas / dataMax ) * rows[0][i] );
+		}
+		
 	};
 
 	for (var i = 0; i < rowsLength - 1; i++){

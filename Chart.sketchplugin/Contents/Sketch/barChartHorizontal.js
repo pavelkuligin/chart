@@ -20,12 +20,17 @@ var onRun = function(context){
 	var step = heightCanvas / xItems;	
 
 	// Set margin between bars
-	var margin = 0.2 * step;
+	var margin = barWidthParam * step;
 
 	// Set size of bar
 	var mainArray = new Array(xItems);
 	for (var z = 0; z < xItems; z++){
-		mainArray[z] = chartCanvas.frame().x() + (( widthCanvas / dataMax ) * rows[0][z]);
+		
+		if (negativeFlip == false) {
+			mainArray[z] = chartCanvas.frame().x() + (( widthCanvas / dataMax ) * rows[0][z]);
+		} else {
+			mainArray[z] = chartCanvas.frame().x() + widthCanvas + (( widthCanvas / dataMax ) * rows[0][z]);
+		}
 	};
 
 	for (var i = 0; i < rowsLength - 1; i++){

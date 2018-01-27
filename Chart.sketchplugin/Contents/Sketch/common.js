@@ -149,7 +149,7 @@ if([selection count] == 0) {
 		for (var i = 0; i < rowsLength; i++){
 
 			for (var j = 0; j < rowLength; j++){
-				rowMax[j] = rowMax[j] + Number(rows[i][j]);
+				rowMax[j] = rowMax[j] + Math.abs(Number(rows[i][j]));
 				rows[i][j] = Number(rows[i][j]);
 			}
 
@@ -171,25 +171,52 @@ if([selection count] == 0) {
 
 	};
 
+	var negativeArray = new Array();
+	var maxNegativeNum = 0;
+	var negCounter = 0;
+	var negativeFlip = false;
+
+	for (var i = 0; i < rowsLength; i++){
+		for (var j = 0; j < rowLength; j++){
+			if (rows[i][j] < 0) {
+				negativeArray.push(rows[i][j]);
+				negCounter = negCounter + 1;
+			}
+		}
+	}
+
+	if (negativeArray.length > 0) {
+		maxNegativeNum = (Math.min.apply(null, negativeArray) * -1);
+	}
+
+	if (negCounter == rowLength * rowsLength) {
+		if (stacked === true){
+            var roundDataMax = Math.round(dataMax);
+        } else {
+		    var roundDataMax = Math.round(maxNegativeNum);
+        }
+		negativeFlip = true;
+	} else {
+		var roundDataMax = Math.round(dataMax) + maxNegativeNum;
+	}
+
 	// Define max Y-point + round it to near 10, 100 or 1000-number
-	var roundDataMax = Math.round(dataMax);
 	var stringDataMax = roundDataMax.toFixed(0);
 
-	if (stringDataMax.length <= 2){
+	if (stringDataMax.length == 1){
 		if (roundDataMax <= 5){
 			dataMax = 5;
-		} else if (10 < roundDataMax && roundDataMax <= 15){
-			dataMax = 15;
 		} else {
-			dataMax = Math.ceil( dataMax / 10) * 10;
+			dataMax = 10;
 		};
 
-	} else if (stringDataMax.length == 3){           
-		dataMax = Math.ceil( dataMax / 100) * 100;
-
 	} else {
-		dataMax = Math.ceil( dataMax / 1000) * 1000;
-		// If you have numbers more than 9 999, then add more else-if items
+		var N = Math.pow(10, stringDataMax.length - 1);          
+		if (roundDataMax / N <= Math.floor(roundDataMax / N) + 0.5) {
+			dataMax = (Math.floor(roundDataMax / N) + 0.5) * N;
+		} else {
+			dataMax = (Math.floor(roundDataMax / N) + 1) * N;
+		};
 
 	};
 
