@@ -6,7 +6,7 @@
     <description>Create the most popular types of charts by real or random data</description>
     <language>en</language>
       <item>
-        <title>Version 2.5</title>
+        <title>Version 2.6</title>
         <description>
           <![CDATA[
             <ul>
@@ -14,7 +14,7 @@
             </ul>
           ]]>
         </description>
-        <enclosure url="https://github.com/pavelkuligin/chart/archive/master.zip" sparkle:version="2.5" />
+        <enclosure url="https://github.com/pavelkuligin/chart/archive/master.zip" sparkle:version="2.6" />
       </item>
   </channel>
 </rss>
