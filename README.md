@@ -34,7 +34,7 @@ to create a few lines, areas, bars, sparklines or progress bars. Supported forma
 
 ## Parameters
 
-Open `Parameter.js` in Chart.sketchplugin/Contents/Sketch/ and change plugin's parameters as you want.
+Open `Parameter.js` in Chart.sketchplugin/Contents/Sketch/ and change plugin's parameters as you want. [Read more on Medium](https://medium.com/sketch-app-sources/chart-2-6-a-lot-of-new-visualizations-negative-values-and-more-flexible-parameters-466eeb884da1)
 
 ```javascript
 // Type of line: straight — 0, curved — 1
