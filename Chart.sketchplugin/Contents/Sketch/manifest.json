@@ -4,7 +4,7 @@
   "author": "Pavel Kuligin",
   "authorEmail": "pavel.kuligin@behavox.com",
   "homepage": "https://github.com/pavelkuligin/chart",
-  "version": 2.5,
+  "version": 2.6.1,
   "identifier": "com.sketchapp.examples.chart",
   "appcast": "https://raw.githubusercontent.com/pavelkuligin/chart/master/appcast.xml",
   "compatibleVersion": "48.2",
