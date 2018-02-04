@@ -52,3 +52,9 @@ var sparkColor = [52,52,52];
 var borderThicknessSpark = 1;
 var endWidthSpark = 4;
 var sparkPointsCount = 20;
+
+// Parameters for Scatter Plot
+var scatterPlotD = 8; 
+
+
+

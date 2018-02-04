@@ -4,7 +4,7 @@
   "author": "Pavel Kuligin",
   "authorEmail": "pavel.kuligin@behavox.com",
   "homepage": "https://github.com/pavelkuligin/chart",
-  "version": 2.7,
+  "version": 2.8,
   "identifier": "com.sketchapp.examples.chart",
   "appcast": "https://raw.githubusercontent.com/pavelkuligin/chart/master/appcast.xml",
   "compatibleVersion": "48.2",
@@ -64,6 +64,15 @@
       "handler": "onRun"
     },
     {
+      "name": "Scatter plot",
+      "identifier": "scatterPlot",
+      "description" : "Create Scatter plot by real or random data",
+      "icon" : "icons/scatterplot.png",
+      "shortcut": "",
+      "script": "scatterPlot.js",
+      "handler": "onRun"
+    },
+    {
       "name": "Pie chart",
       "identifier": "pieChart",
       "description" : "Create Pie chart by real or random data",
@@ -112,7 +121,7 @@
   "menu": {
     "title": "📈 Chart",
     "items": [
-      "lineChart", "barChartVertical", "barChartHorizontal", "areaChart", "stackedAreaChart", "streamGraph", "pieChart", "donutChart", "progressBar", "sparkLine", "gaugeChart"
+      "lineChart", "barChartVertical", "barChartHorizontal", "areaChart", "stackedAreaChart", "streamGraph", "scatterPlot", "pieChart", "donutChart", "progressBar", "sparkLine", "gaugeChart"
     ]
   }
 }

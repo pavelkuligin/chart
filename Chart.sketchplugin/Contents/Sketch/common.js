@@ -14,7 +14,7 @@ if([selection count] == 0) {
 	var jsString = String(stringPasteboard);
 
 	// Search letters
-	var numberString = jsString.replace(/\u0020/g, "").replace(/\u0009/g, "").replace(/\u000B/g, "").replace(/\u002C/g, "").replace(/\u002E/g, "").replace(/\u002D/g, "").replace(/\n/g, "");
+	var numberString = jsString.replace(/\u0020/g, "").replace(/\u0009/g, "").replace(/\u000B/g, "").replace(/\u002C/g, "").replace(/\u002E/g, "").replace(/\u002D/g, "").replace(/\u0025/g, "").replace(/\u003B/g, "").replace(/\n/g, "");
 	var letterReg = /\D/;
 	var letters = letterReg.test(numberString);
 
@@ -133,7 +133,7 @@ if([selection count] == 0) {
 	} else {
 
 		// Separate table data to array
-	    var rows = jsString.replace(/\u0020/g, "").replace(/\u0009/g, "\u0020").replace(/\u000B/g, "\u0020").replace(/\u002C/g, "\u0020").split("\n")
+	    var rows = jsString.replace(/\u0025/g, "").replace(/\u003B/g, "").replace(/\u0020/g, "").replace(/\u0009/g, "\u0020").replace(/\u000B/g, "\u0020").replace(/\u002C/g, "\u0020").split("\n")
 		var rowsLength = rows.length;
 		for (var i = 0; i < rowsLength; i++) {
 			rows[i] = rows[i].split("\u0020");
@@ -212,10 +212,10 @@ if([selection count] == 0) {
 
 	} else {
 		var N = Math.pow(10, stringDataMax.length - 1);          
-		if (roundDataMax / N <= Math.floor(roundDataMax / N) + 0.5) {
-			dataMax = (Math.floor(roundDataMax / N) + 0.5) * N;
+		if (N == 10) {
+			dataXMax = (Math.floor(roundDataMax / N) + 1) * N;
 		} else {
-			dataMax = (Math.floor(roundDataMax / N) + 1) * N;
+			dataXMax = (Math.floor(roundDataMax / 20) + 1) * 20;
 		};
 
 	};

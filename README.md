@@ -1,6 +1,6 @@
 <img width="888" height="517" src="images/chart-2x.png" title="Chart promo">
 
-Chart is a Sketch plugin for creation the most popular charts by real or random data. Chart supports copy-paste from any kind of text editor, for example: Notes, Word, Google Docs, etc. Also Chart supports copy-paste tabulated data from Google Sheets or Microsoft Excel.
+Chart is a Sketch plugin for creation the most popular charts by real or random data. Chart supports copy-paste from any kind of text editor, for example: Notes, Word, Google Docs, etc. Also Chart supports copy-paste tabulated data from Google Sheets.
 
 [Read more on Medium](https://medium.com/@pavelkuligin/chart-the-most-powerful-data-visualization-plugin-for-sketch-6849155e09ab)
 
@@ -9,15 +9,26 @@ Chart is a Sketch plugin for creation the most popular charts by real or random 
 ### Steps
 
 1. Draw Rectangle or Oval. 
-2. Copy numeric or use random data. You can select a few strings of numbers 
-to create a few lines, areas, bars, sparklines or progress bars. Supported formats:
+2. Copy numeric or use random data. Supported formats:
    - 10, 12, 14, 16;
+   - 27, -17, 94, -32;
    - 5.3, 7.9, 15.3, 20.1;
    - 25%, 30%, 10%, 35%;
-   - row in Google Sheets or Excel.
+   - row in Google Sheets.
 
 3. Select Rectangle.
 4. Create Chart using Plugins menu or Sketch Runner :-)
+
+To draw a few lines on one canvas copy a few lines of data, e.g.:
+13, 18, 42, 27
+39, 8, 21, 40
+
+To draw a few progress bars select a few circles or rectangles and use following format of data (each progress bar on a separate line):
+30%
+45%
+78%
+
+To draw Scatter plot or Bubble chart select a few lines of data: the first line is X, the second line is Y, the third line is Volume (for bubble chart).
 
 
 ## Install
@@ -91,6 +102,9 @@ var sparkColor = [52,52,52];
 var borderThicknessSpark = 1;
 var endWidthSpark = 4;
 var sparkPointsCount = 20;
+
+// Parameters for Scatter Plot
+var scatterPlotD = 8; 
 ```
 
 
@@ -107,7 +121,7 @@ var sparkPointsCount = 20;
 - [x] Progress Bar
 - [x] Solid Gauge Chart
 - [x] Stream Graph
-- [ ] Bubble Chart (Feb 2018)
+- [x] Scatter Plot and Bubble Chart
 - [ ] Candlestick Chart (Mar 2018)
 
 ### Support Chart
