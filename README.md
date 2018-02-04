@@ -20,13 +20,13 @@ Chart is a Sketch plugin for creation the most popular charts by real or random 
 4. Create Chart using Plugins menu or Sketch Runner :-)
 
 To draw a few lines on one canvas copy a few lines of data, e.g.:
-13, 18, 42, 27
-39, 8, 21, 40
+> 13, 18, 42, 27
+> 39, 8, 21, 40
 
 To draw a few progress bars select a few circles or rectangles and use following format of data (each progress bar on a separate line):
-30%
-45%
-78%
+> 30%
+> 45%
+> 78%
 
 To draw Scatter plot or Bubble chart select a few lines of data: the first line is X, the second line is Y, the third line is Volume (for bubble chart).
 
