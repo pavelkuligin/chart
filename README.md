@@ -112,6 +112,10 @@ var scatterPlotD = 8;
 ```
 
 
+## Examples
+
+<img width="888" height="3484" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/charts.jpg" title="Examples">
+
 ### Roadmap
 
 - [x] Line Chart
