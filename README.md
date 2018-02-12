@@ -1,14 +1,14 @@
-<img width="888" height="517" src="images/chart-2x.png" title="Chart promo">
+<img width="888" height="517" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/chart-2x.png" title="Chart promo">
 
 Chart is a Sketch plugin for creation the most popular charts by real or random data. Chart supports copy-paste from any kind of text editor, for example: Notes, Word, Google Docs, etc. Also Chart supports copy-paste tabulated data from Google Sheets.
 
 [Read more on Medium](https://medium.com/@pavelkuligin/chart-the-most-powerful-data-visualization-plugin-for-sketch-6849155e09ab)
 
-<img width="800" height="500" src="images/usage.gif" title="How to use Chart">
+<img width="800" height="500" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/usage.gif" title="How to use Chart">
 
 ### Steps
 
-1. Draw Rectangle or Oval. 
+1. Draw Rectangle or Oval.
 2. Copy numeric or use random data. Supported formats:
    - 10, 12, 14, 16;
    - 27, -17, 94, -32;
@@ -81,10 +81,10 @@ var dotFillG = 255;
 var dotFillB = 255;  
 var dotBorderR = 255;
 var dotBorderG = 255;
-var dotBorderB = 255; 
+var dotBorderB = 255;
 
 // Parameters for Areas
-var areaOpacity = 0.8; 
+var areaOpacity = 0.8;
 
 // Parameters for Bars
 var barWidthParam = 0.2; // The larger the parameter, the thinner the bar;
@@ -108,7 +108,7 @@ var endWidthSpark = 4;
 var sparkPointsCount = 20;
 
 // Parameters for Scatter Plot
-var scatterPlotD = 8; 
+var scatterPlotD = 8;
 ```
 
 
@@ -138,4 +138,3 @@ If Chart saves your time and you want more new features, [support me via PayPal]
 
 If you have any questions or ideas about Chart, please, feel free to contact me:
 pavel.kuligin@behavox.com, www.pavelkuligin.ru or [facebook](https://www.facebook.com/kuligin.pavel)
-
