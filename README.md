@@ -114,7 +114,8 @@ var scatterPlotD = 8;
 
 ## Examples
 
-<img width="888" height="3484" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/charts.jpg" title="Examples">
+<img width="888" height="1756" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/charts-1.jpg" title="Examples">
+<img width="888" height="1728" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/charts-2.jpg" title="Examples">
 
 ### Roadmap
 
