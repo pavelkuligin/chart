@@ -1,0 +1,105 @@
+{
+  "header": {
+    "influencerUsername": "_lilybrown",
+    "followers": "115k",
+    "following": "1,910",
+    "post": 150,
+    "valuableFollowers": "139,875",
+    "score": 95,
+    "color": "#FC9565"
+  },
+  "followerBreakdown": {
+    "loyalfans": {
+      "amount": "7.7k",
+      "percentage": "5%"
+    },
+    "HE": {
+      "amount": "47.7k",
+      "percentage": "30%"
+    },
+    "E": {
+      "amount": "74k",
+      "percentage": "48%"
+    },
+    "LE": {
+      "amount": "18.6k",
+      "percentage": "12%"
+    },
+    "GH": {
+      "amount": "1.6k",
+      "percentage": "1.6%"
+    },
+    "B": {
+      "amount": "1.5k",
+      "percentage": "1.5%"
+    },
+    "INF": {
+      "amount": "4.6k",
+      "percentage": "3%"
+    }
+  },
+  "engagementRates": {
+    "engagementRate": "21%",
+    "followerEngagementRate": "8%",
+    "PODengagementRate": "32%"
+  },
+  "genders": {
+    "male": "57.8%%",
+    "female": "43.2%%"
+  },
+  "ages": {
+    "13-17": 0.1118007732157236,
+    "18-24": 0.46505725848597157,
+    "25-34": 0.3033813795717632,
+    "35-44": 0.08963642711832474,
+    "45-64": 0.03012416160821693
+  },
+  "gendersPerAge": {
+    "13-17": {
+      "FEMALE": 0.06820976815491339,
+      "MALE": 0.043591005060810206
+    },
+    "18-24": {
+      "FEMALE": 0.307249564735174,
+      "MALE": 0.1578076937507976
+    },
+    "25-34": {
+      "FEMALE": 0.16949739132906597,
+      "MALE": 0.13388398824269726
+    },
+    "35-44": {
+      "FEMALE": 0.03877492858986254,
+      "MALE": 0.05086149852846221
+    },
+    "45-64": {
+      "FEMALE": 0.012742196225459065,
+      "MALE": 0.01738196538275787
+    }
+  },
+  "countries": {
+    "US": 0.12910085054678008,
+    "BR": 0.08140947752126367,
+    "RU": 0.08049817739975698
+  },
+  "cities": {
+    "Moscow": 0.12910085054678008,
+    "Sydney": 0.08140947752126367,
+    "São Paulo": 0.08049817739975698
+  },
+  "audience_interests": {
+    "Clothes, Shoes, Handbags & Accessories": 0.25517500940910803,
+    "Television & Film": 0.249529544599172,
+    "Electronics & Computers": 0.23899134362062477,
+    "Restaurants, Food & Grocery": 0.22130222054949192,
+    "Camera & Photography": 0.2194203989461799,
+    "Shopping & Retail": 0.20286036883703426
+  },
+  "brand_interests": {
+    "Ray-Ban": 0.02220549491908167,
+    "Sunnies Studios": 0.018065487391795258,
+    "Calvin Klein": 0.018065487391795258,
+    "MISSGUIDED": 0.015430937147158449,
+    "Zara": 0.015054572826496047,
+    "Levi's": 0.013925479864508844
+  }
+}
