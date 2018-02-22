@@ -2,9 +2,12 @@
 
 Chart is a Sketch plugin for creation the most popular charts by real or random data. Chart supports copy-paste from any kind of text editor, for example: Notes, Word, Google Docs, etc. Also Chart supports copy-paste tabulated data from Google Sheets. [Read more on Medium](https://medium.com/@pavelkuligin/chart-the-most-powerful-data-visualization-plugin-for-sketch-6849155e09ab)
 
-## Chart ❤️ JSON
+### Chart ❤️ JSON
 <img width="527" height="389" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/json.png" title="JSON">
 Use only HTTPS links and one key. 
+
+
+## How to use Chart
 
 <img width="800" height="500" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/usage.gif" title="How to use Chart">
 
