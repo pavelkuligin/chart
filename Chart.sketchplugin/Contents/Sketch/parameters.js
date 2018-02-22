@@ -3,7 +3,7 @@ var curveType = 1;
 
 // Set of colors for lines
 var colorPalette = new Array();
-	var red = [244,67,54];
+	var red = [48,176,246];
 	var pink = [233,30,99];
 	var purple = [156,39,176];
 	var deepPurple = [103,58,183];
@@ -33,7 +33,7 @@ var dotBorderB = 255;
 var areaOpacity = 0.8; 
 
 // Parameters for Bars
-var barWidthParam = 0.2; // The larger the parameter, the thinner the bar;
+var barWidthParam = 0.075; // The larger the parameter, the thinner the bar;
 
 // Parameters for Donut
 var donutBorder = 30;

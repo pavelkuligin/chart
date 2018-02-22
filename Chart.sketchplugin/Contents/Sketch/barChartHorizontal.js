@@ -15,12 +15,13 @@ var onRun = function(context){
 	rows.unshift(zeroArray);
 	rowsLength = rows.length;
 
-
 	// Width of bar area
 	var step = heightCanvas / xItems;	
 
 	// Set margin between bars
 	var margin = barWidthParam * step;
+
+	log(dataMax)
 
 	// Set size of bar
 	var mainArray = new Array(xItems);
