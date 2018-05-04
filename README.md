@@ -2,14 +2,19 @@
 
 Chart is a Sketch plugin for creation the most popular charts by real or random data. Chart supports copy-paste from any kind of text editor, for example: Notes, Word, Google Docs, etc. Also Chart supports copy-paste tabulated data from Google Sheets. [Read more on Medium](https://medium.com/@pavelkuligin/chart-the-most-powerful-data-visualization-plugin-for-sketch-6849155e09ab)
 
-### Chart ❤️ JSON
-<img width="527" height="389" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/json.png" title="JSON">
-Use only HTTPS links and one key. 
 
+## Chart demo
 
-## How to use Chart
+[![Chart 3.0 demo](https://raw.githubusercontent.com/pavelkuligin/chart/master/images/chart_demo.png)](https://www.youtube.com/watch?v=PZwTRSArpMo "Chart 3.0 demo")
 
-<img width="800" height="500" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/usage.gif" title="How to use Chart">
+### Random data
+<img width="800" height="556" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/random.gif" title="Random data">
+
+### Data from Google Sheets
+<img width="800" height="538" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/table.gif" title="Google Sheets">
+
+### Data from JSON
+<img width="800" height="554" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/json.gif" title="JSON">
 
 ### Steps
 
@@ -21,7 +26,7 @@ Use only HTTPS links and one key.
    - 25%, 30%, 10%, 35%;
    - row in Google Sheets.
 
-3. Select Rectangle.
+3. Select Rectangle or Oval.
 4. Create Chart using Plugins menu or Sketch Runner :-)
 
 To draw a few lines on one canvas copy a few lines of data, e.g.:
@@ -44,7 +49,7 @@ To draw Scatter plot or Bubble chart select a few lines of data: the first line 
 
 ### Via Sketchpacks
 
-[![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Chart with Sketchpacks")](https://sketchpacks.com/pavelkuligin/chart/install)
+[![Install Chart with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Chart with Sketchpacks")](https://sketchpacks.com/pavelkuligin/chart/install)
 
 ### Or manually
 
@@ -54,73 +59,14 @@ To draw Scatter plot or Bubble chart select a few lines of data: the first line 
 
 ## Parameters
 
-Open `Parameter.js` in Chart.sketchplugin/Contents/Sketch/ and change plugin's parameters as you want. [Read more on Medium](https://medium.com/sketch-app-sources/chart-2-6-a-lot-of-new-visualizations-negative-values-and-more-flexible-parameters-466eeb884da1)
-
-```javascript
-// Type of line: straight — 0, curved — 1
-var curveType = 1;
-
-// Set of colors for lines
-var colorPalette = new Array();
-	var red = [244,67,54];
-	var pink = [233,30,99];
-	var purple = [156,39,176];
-	var deepPurple = [103,58,183];
-	var blue = [33,150,243];
-	var cian = [0,188,212];
-	var teal = [0,150,136];
-	var green = [0,200,83];
-	var yellow = [255,235,59];
-	var amber = [255,193,7];
-	var orange = [255,152,0];
-
-	colorPalette = [red, green, blue, yellow, purple, pink, amber, cian, deepPurple, teal, orange];
-
-// Parameters for Lines
-var borderThickness = 2;
-var endWidth = 8;
-var dots = false;
-var cuttedCenter = false; // false — color of dot the same as line color; true — you can choose color of dot and dot border below;
-var dotFillR = 255;
-var dotFillG = 255;
-var dotFillB = 255;  
-var dotBorderR = 255;
-var dotBorderG = 255;
-var dotBorderB = 255;
-
-// Parameters for Areas
-var areaOpacity = 0.8;
-
-// Parameters for Bars
-var barWidthParam = 0.2; // The larger the parameter, the thinner the bar;
-
-// Parameters for Donut
-var donutBorder = 30;
-
-// Parameters for Progress bar
-var progressBarBorder = 12;
-var progressBarColor = [244,67,54];
-
-// Parameters for Gauge chart
-var gaugeChartBorder = 30;
-var gaugeChartColor = [156,39,176];
-var gaugeChartBackcolor = [236,236,236];
-
-// Parameters for Sparklines
-var sparkColor = [52,52,52];
-var borderThicknessSpark = 1;
-var endWidthSpark = 4;
-var sparkPointsCount = 20;
-
-// Parameters for Scatter Plot
-var scatterPlotD = 8;
-```
+<img width="424" height="518" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/params.png" title="Parameters">
+Select "Set options" in the Chart menu to customize your own chart styles. Paste colors in the format [R,G,B] and separate them with commas.
 
 
 ## Examples
 
-<img width="888" height="1756" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/charts-1.jpg" title="Examples">
-<img width="888" height="1728" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/charts-2.jpg" title="Examples">
+<img width="888" height="1627" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/charts-1.jpg" title="Examples">
+<img width="888" height="1474" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/charts-2.jpg" title="Examples">
 
 ### Roadmap
 

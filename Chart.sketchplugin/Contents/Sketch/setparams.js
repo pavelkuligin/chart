@@ -65,158 +65,11 @@ var exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(Promise) {/* globals NSJSONSerialization NSJSONWritingPrettyPrinted NSDictionary NSHTTPURLResponse NSString NSASCIIStringEncoding NSUTF8StringEncoding coscript NSURL NSMutableURLRequest NSMutableData NSURLConnection sketch */
-var _ObjCClass = __webpack_require__(14)
-
-var ObjCClass = _ObjCClass.default
-
-function response (httpResponse, data) {
-  var keys = []
-  var all = []
-  var headers = {}
-  var header
-
-  for (var i = 0; i < httpResponse.allHeaderFields().allKeys().length; i++) {
-    var key = httpResponse.allHeaderFields().allKeys()[i].toLowerCase()
-    var value = httpResponse.allHeaderFields()[key]
-    keys.push(key)
-    all.push([key, value])
-    header = headers[key]
-    headers[key] = header ? (header + ',' + value) : value
-  }
-
-  return {
-    ok: (httpResponse.statusCode() / 200 | 0) == 1, // 200-399
-    status: httpResponse.statusCode(),
-    statusText: NSHTTPURLResponse.localizedStringForStatusCode(httpResponse.statusCode()),
-    url: httpResponse.URL(),
-    clone: response.bind(this, httpResponse, data),
-    text: function () {
-      return new Promise(function (resolve, reject) {
-        const str = NSString.alloc().initWithData_encoding(data, NSASCIIStringEncoding)
-        if (str) {
-          resolve(str)
-        } else {
-          reject(new Error("Couldn't parse body"))
-        }
-      })
-    },
-    json: function () {
-      return new Promise(function (resolve, reject) {
-        var str = NSString.alloc().initWithData_encoding(data, NSUTF8StringEncoding)
-        if (str) {
-          // parse errors are turned into exceptions, which cause promise to be rejected
-          var obj = JSON.parse(str)
-          resolve(obj)
-        } else {
-          reject(new Error('Could not parse JSON because it is not valid UTF-8 data.'))
-        }
-      })
-    },
-    blob: function () {
-      return Promise.resolve(data)
-    },
-    headers: {
-      keys: function () { return keys },
-      entries: function () { return all },
-      get: function (n) { return headers[n.toLowerCase()] },
-      has: function (n) { return n.toLowerCase() in headers }
-    }
-  }
-}
-
-// We create one ObjC class for ourselves here
-var DelegateClass
-
-function fetch (urlString, options) {
-  options = options || {}
-  var fiber
-  try {
-    fiber = coscript.createFiber()
-  } catch (err) {
-    coscript.shouldKeepAround = true
-  }
-  return new Promise(function (resolve, reject) {
-    var url = NSURL.alloc().initWithString(urlString)
-    var request = NSMutableURLRequest.requestWithURL(url)
-    request.setHTTPMethod(options.method || 'GET')
-
-    Object.keys(options.headers || {}).forEach(function (i) {
-      request.setValue_forHTTPHeaderField(options.headers[i], i)
-    })
-
-    if (options.body) {
-      var data
-      if (typeof options.body === 'string') {
-        var str = NSString.alloc().initWithString(options.body)
-        data = str.dataUsingEncoding(NSUTF8StringEncoding)
-      } else {
-        var error
-        data = NSJSONSerialization.dataWithJSONObject_options_error(options.body, NSJSONWritingPrettyPrinted, error)
-        if (error != null) {
-          return reject(error)
-        }
-        request.setValue_forHTTPHeaderField('' + data.length(), 'Content-Length')
-      }
-      request.setHTTPBody(data)
-    }
-
-    if (!DelegateClass) {
-      DelegateClass = ObjCClass({
-        classname: 'FetchPolyfillDelegate',
-        data: null,
-        httpResponse: null,
-        callbacks: null,
-
-        'connectionDidFinishLoading:': function (connection) {
-          if (fiber) {
-            fiber.cleanup()
-          } else {
-            coscript.shouldKeepAround = false
-          }
-          return this.callbacks.resolve(response(this.httpResponse, this.data))
-        },
-        'connection:didReceiveResponse:': function (connection, httpResponse) {
-          this.httpResponse = httpResponse
-          this.data = NSMutableData.alloc().init()
-        },
-        'connection:didFailWithError:': function (connection, error) {
-          if (fiber) {
-            fiber.cleanup()
-          } else {
-            coscript.shouldKeepAround = false
-          }
-          return this.callbacks.reject(error)
-        },
-        'connection:didReceiveData:': function (connection, data) {
-          this.data.appendData(data)
-        }
-      })
-    }
-
-    var connectionDelegate = DelegateClass.new()
-    connectionDelegate.callbacks = NSDictionary.dictionaryWithDictionary({
-      resolve,
-      reject
-    })
-
-    NSURLConnection.alloc().initWithRequest_delegate(request, connectionDelegate)
-  })
-}
-
-module.exports = fetch
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* globals coscript, sketch */
@@ -281,7 +134,7 @@ module.exports = {
 
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(console) {/* globals log */
@@ -483,10 +336,10 @@ console._skpmEnabled = true
 
 module.exports = console
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports) {
 
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign, no-var, vars-on-top, prefer-template, prefer-arrow-callback, func-names, prefer-destructuring, object-shorthand */
@@ -539,7 +392,7 @@ module.exports = function prepareStackTrace(stackTrace) {
 
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = function toArray(object) {
@@ -555,222 +408,309 @@ module.exports = function toArray(object) {
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-exports['default'] = function (context) {
-	var fetch = __webpack_require__(0);
+exports["default"] = function (context) {
+	var fetch = __webpack_require__(5);
+
 	var url = context.plugin.urlForResourceNamed("params.json");
 	var result = NSString.stringWithContentsOfFile_encoding_error(url, NSUTF8StringEncoding, null);
 	var params = JSON.parse(result);
-
-	var curveType = Number(params.curveType);
-	var canvas = (0, _common.canvasCreate)(context);
-	canvas.doc.currentPage().changeSelectionBySelectingLayers_([]);
-
-	function createLineChart() {
-		// Set step by X between near points
-		var xStep = canvas.width / (dataObj.columns - 1);
-
-		// Set first point of line
-		var x0 = canvas.x,
-		    y0 = 0,
-		    maxValue = dataObj.niceMax,
-		    minValue = 0,
-		    zero = canvas.y + canvas.height;
-
-		// Check negative values
-		if (dataObj.niceMax <= 0) {
-			maxValue = Math.abs(dataObj.niceMin);
-			zero = canvas.y;
-		} else if (dataObj.niceMax >= 0 && dataObj.niceMin < 0) {
-			maxValue = dataObj.niceMax - dataObj.niceMin;
-			minValue = dataObj.niceMin * -1;
-		} else {
-			maxValue = dataObj.niceMax;
-			minValue = 0;
-		}
-
-		//Loop by number of Lines
-		for (var i = 0; i < dataObj.rows; i++) {
-
-			y0 = zero - canvas.height / maxValue * (Number(dataObj.table[i][0]) + minValue);
-
-			// Create line chart
-			var line = NSBezierPath.bezierPath();
-			line.moveToPoint(NSMakePoint(x0, y0));
-
-			var xLast = x0,
-			    yLast = y0,
-			    xNext = 0;
-
-			for (var j = 1; j < dataObj.columns; j++) {
-
-				xNext = xLast + xStep;
-
-				var y = zero - canvas.height / maxValue * (Number(dataObj.table[i][j]) + minValue);
-
-				if (curveType === 1) {
-					line.curveToPoint_controlPoint1_controlPoint2_(NSMakePoint(xNext, y), NSMakePoint(xLast + xStep / 2, yLast), NSMakePoint(xNext - xStep / 2, y));
-				} else {
-					line.lineToPoint(NSMakePoint(xNext, y));
-				}
-
-				if (params.lineParams.dots === "true") {
-					var lineDot = MSOvalShape.alloc().init();
-					lineDot.frame = MSRect.rectWithRect(NSMakeRect(xLast - params.lineParams.endWidth / 2, yLast - params.lineParams.endWidth / 2, params.lineParams.endWidth, params.lineParams.endWidth));
-					var lineDotShape = MSShapeGroup.shapeWithPath(lineDot);
-					var fillDot = lineDotShape.style().addStylePartOfType(0);
-
-					if (params.lineParams.cuttedCenter === "true") {
-						fillDot.color = MSColor.colorWithRed_green_blue_alpha(255 / 255, 255 / 255, 255 / 255, 1);
-					} else {
-						fillDot.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[i][0] / 255, params.colorPalete[i][1] / 255, params.colorPalete[i][2] / 255, 1);
-					}
-
-					var borderDot = lineDotShape.style().addStylePartOfType(1);
-
-					if (params.lineParams.cuttedCenter === "true") {
-						borderDot.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[i][0] / 255, params.colorPalete[i][1] / 255, params.colorPalete[i][2] / 255, 1);
-					} else {
-						borderDot.color = MSColor.colorWithRed_green_blue_alpha(255 / 255, 255 / 255, 255 / 255, 1);
-					}
-
-					borderDot.thickness = params.lineParams.borderThickness;
-					if (params.lineParams.cuttedCenter == "true") {
-						borderDot.position = 1;
-					} else {
-						borderDot.position = 2;
-					}
-					lineDotShape.setName("dot_line_" + j);
-					var dotArray = NSArray.arrayWithArray([lineDotShape]);
-
-					if (canvas.doc.currentPage().currentArtboard() === null) {
-						canvas.doc.currentPage().addLayers(dotArray);
-					} else {
-						canvas.doc.currentPage().currentArtboard().addLayers(dotArray);
-					}
-
-					lineDotShape.select_byExpandingSelection(true, true);
-				}
-
-				xLast = xNext;
-				yLast = y;
-			};
-
-			// Create shape from path
-			var lineShape = MSShapeGroup.shapeWithBezierPath(line),
-			    border = lineShape.style().addStylePartOfType(1);
-
-			border.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[i][0] / 255, params.colorPalete[i][1] / 255, params.colorPalete[i][2] / 255, 1);
-			border.thickness = params.lineParams.borderThickness;
-			lineShape.setName("line_" + (i + 1));
-
-			var lineArray = NSArray.arrayWithArray([lineShape]);
-
-			// Add line and circle on artboard
-			if (canvas.doc.currentPage().currentArtboard() === null) {
-				canvas.doc.currentPage().addLayers(lineArray);
-			} else {
-				canvas.doc.currentPage().currentArtboard().addLayers(lineArray);
-			}
-			lineShape.select_byExpandingSelection(true, true);
-
-			// Add the last one
-			if (params.lineParams.dots === "true") {
-				var _lineDot = MSOvalShape.alloc().init();
-				_lineDot.frame = MSRect.rectWithRect(NSMakeRect(xLast - params.lineParams.endWidth / 2, yLast - params.lineParams.endWidth / 2, params.lineParams.endWidth, params.lineParams.endWidth));
-				var _lineDotShape = MSShapeGroup.shapeWithPath(_lineDot);
-				var _fillDot = _lineDotShape.style().addStylePartOfType(0);
-
-				if (params.lineParams.cuttedCenter === "true") {
-					_fillDot.color = MSColor.colorWithRed_green_blue_alpha(255 / 255, 255 / 255, 255 / 255, 1);
-				} else {
-					_fillDot.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[i][0] / 255, params.colorPalete[i][1] / 255, params.colorPalete[i][2] / 255, 1);
-				}
-
-				var _borderDot = _lineDotShape.style().addStylePartOfType(1);
-
-				if (params.lineParams.cuttedCenter === "true") {
-					_borderDot.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[i][0] / 255, params.colorPalete[i][1] / 255, params.colorPalete[i][2] / 255, 1);
-				} else {
-					_borderDot.color = MSColor.colorWithRed_green_blue_alpha(255 / 255, 255 / 255, 255 / 255, 1);
-				}
-
-				_borderDot.thickness = params.lineParams.borderThickness;
-				if (params.lineParams.cuttedCenter == "true") {
-					_borderDot.position = 1;
-				} else {
-					_borderDot.position = 2;
-				}
-				_lineDotShape.setName("dot_line_end");
-				var _dotArray = NSArray.arrayWithArray([_lineDotShape]);
-
-				if (canvas.doc.currentPage().currentArtboard() === null) {
-					canvas.doc.currentPage().addLayers(_dotArray);
-				} else {
-					canvas.doc.currentPage().currentArtboard().addLayers(_dotArray);
-				}
-				_lineDotShape.select_byExpandingSelection(true, true);
-			}
-
-			canvas.layer.select_byExpandingSelection(true, true);
-		}
-
-		(0, _selectionToGroup.selectionToGroup)(canvas, "Line chart");
-	}
-
-	function drawChart() {
-		var niceScales = (0, _nicenum.calculateNiceNum)(dataObj.min, dataObj.max);
-		dataObj.niceMax = niceScales.niceMaximum;
-		dataObj.niceMin = niceScales.niceMinimum;
-
-		if (canvas.layer.isKindOfClass(MSShapeGroup)) {
-			createLineChart();
-		} else {
-			var plot = canvas.layer.firstLayer();
-			canvas.height = plot.frame().height();
-			canvas.width = plot.frame().width();
-			canvas.x = plot.frame().x() + canvas.layer.frame().x();
-			canvas.y = plot.frame().y() + canvas.layer.frame().y();
-
-			plot.duplicate();
-			var layersInGroup = canvas.layer.containedLayersCount();
-			canvas.layer.layerAtIndex(0).select_byExpandingSelection(true, true);
-
-			for (var i = 0; i < layersInGroup - 1; i++) {
-				var layer = canvas.layer.layerAtIndex(1);
-				layer.removeFromParent();
-			}
-
-			canvas.layer.ungroup();
-
-			createLineChart();
-		}
-	}
-
-	var dataObjArray = (0, _common.processData)();
-	var dataObj = 0;
-	if (dataObjArray[1] === false) {
-		dataObj = dataObjArray[0];
-		drawChart();
+	log(params);
+	var colors = JSON.stringify(params.colorPalete).slice(1).slice(0, -1);
+	var progressColor = JSON.stringify(params.progressParams.progressBarColor);
+	var sparkColor = JSON.stringify(params.sparkParams.sparkColor);
+	var curveType = "";
+	var scatterType = "";
+	var dotsState = "";
+	var cutState = "";
+	if (JSON.stringify(params.curveType) == "1") {
+		curveType = "Yes";
 	} else {
-		(0, _common.fetchData)(dataObjArray[0]).then(function (response) {
-			dataObj = response;
-			drawChart();
-		});
+		curveType = "No";
 	}
+	if (params.lineParams.dots === "true") {
+		dotsState = "Yes";
+	} else {
+		dotsState = "No";
+	}
+	if (params.lineParams.cuttedCenter === "true") {
+		cutState = "Yes";
+	} else {
+		cutState = "No";
+	}
+	if (params.scatterParams.bubbles === "true") {
+		scatterType = "Yes";
+	} else {
+		scatterType = "No";
+	}
+
+	var curveView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 25.0));
+	var curveSelect = NSPopUpButton.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 120.0, 25.0));
+	curveSelect.addItemsWithTitles(["Yes", "No"]);
+	curveSelect.selectItemWithTitle(curveType);
+	curveView.addSubview(curveSelect);
+
+	var scatterView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 25.0));
+	var scatterSelect = NSPopUpButton.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 120.0, 25.0));
+	scatterSelect.addItemsWithTitles(["Yes", "No"]);
+	scatterSelect.selectItemWithTitle(scatterType);
+	scatterView.addSubview(scatterSelect);
+
+	var colorsView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 80.0));
+
+	var colorsInput = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 80.0));
+	colorsInput.cell().setPlaceholderString("Сolors separated by commas in format: [R,G,B]");
+	colorsInput.cell().setStringValue("" + colors);
+	colorsView.addSubview(colorsInput);
+
+	var linesSecondView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 25.0));
+
+	var dotSelect = NSPopUpButton.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 120.0, 25.0));
+	dotSelect.addItemsWithTitles(["Yes", "No"]);
+	dotSelect.selectItemWithTitle(dotsState);
+	linesSecondView.addSubview(dotSelect);
+
+	var cutSelect = NSPopUpButton.alloc().initWithFrame(NSMakeRect(140.0, 0.0, 120.0, 25.0));
+	cutSelect.addItemsWithTitles(["Yes", "No"]);
+	cutSelect.selectItemWithTitle(cutState);
+	linesSecondView.addSubview(cutSelect);
+
+	var progressView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 25.0));
+
+	var progressColorInput = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 120.0, 25.0));
+	progressColorInput.cell().setPlaceholderString("e.g., [52,52,52]");
+	progressColorInput.cell().setStringValue("" + progressColor);
+	progressView.addSubview(progressColorInput);
+
+	var sparkView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 25.0));
+
+	var sparkInput = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 120.0, 25.0));
+	sparkInput.cell().setPlaceholderString("e.g., [52,52,52]");
+	sparkInput.cell().setStringValue("" + sparkColor);
+	sparkView.addSubview(sparkInput);
+
+	var alert = COSAlertWindow["new"]();
+	alert.setMessageText("Parameters for Chart");
+	alert.addTextLabelWithValue("Smoothed lines");
+	alert.addAccessoryView(curveView);
+	alert.addTextLabelWithValue("Colors");
+	alert.addAccessoryView(colorsView);
+	alert.addTextLabelWithValue("Line chart: Dots & Cutted center");
+	alert.addAccessoryView(linesSecondView);
+	alert.addTextLabelWithValue("Progress bar: Color");
+	alert.addAccessoryView(progressView);
+	alert.addTextLabelWithValue("Sparkline: Color");
+	alert.addAccessoryView(sparkView);
+	alert.addTextLabelWithValue("Scatter Plot: Bubbles");
+	alert.addAccessoryView(scatterView);
+	alert.addButtonWithTitle("OK");
+	alert.addButtonWithTitle("Cancel");
+
+	alert.alert().window();
+
+	var responseCode = alert.runModal();
+
+	var newColors = colorsInput.stringValue(),
+	    newCurve = curveSelect.indexOfSelectedItem(),
+	    newLineDot = dotSelect.indexOfSelectedItem(),
+	    newLineCut = cutSelect.indexOfSelectedItem(),
+	    newProgressColor = progressColorInput.stringValue(),
+	    newSparkColor = sparkInput.stringValue();
+	newBubble = scatterSelect.indexOfSelectedItem();
+
+	var newColorsForm = JSON.parse("[" + newColors + "]");
+
+	params.colorPalete = newColorsForm;
+	var newLineDotForm = "true",
+	    newLineCutForm = "true",
+	    newBubbleForm = "true";
+
+	if (newCurve == "0") {
+		newCurve = 1;
+	} else {
+		newCurve = 0;
+	}
+	if (newLineDot == "0") {
+		newLineDotForm = "true";
+	} else {
+		newLineDotForm = "false";
+	}
+	if (newLineCut == "0") {
+		newLineCutForm = "true";
+	} else {
+		newLineCutForm = "false";
+	}
+	if (newBubble == "0") {
+		newBubbleForm = "true";
+	} else {
+		newBubbleForm = "false";
+	}
+	params.curveType = newCurve;
+	params.lineParams.dots = newLineDotForm;
+	params.scatterParams.bubbles = newBubbleForm;
+	params.lineParams.cuttedCenter = newLineCutForm;
+	params.progressParams.progressBarColor = JSON.parse(newProgressColor);
+	params.sparkParams.sparkColor = JSON.parse(newSparkColor);
+
+	log(params);
+
+	var contentString = NSString.stringWithString(JSON.stringify(params));
+
+	contentString.writeToFile_atomically_encoding_error(url, true, NSUTF8StringEncoding, null);
 };
 
-var _nicenum = __webpack_require__(16);
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var _selectionToGroup = __webpack_require__(17);
+/* WEBPACK VAR INJECTION */(function(Promise) {/* globals NSJSONSerialization NSJSONWritingPrettyPrinted NSDictionary NSHTTPURLResponse NSString NSASCIIStringEncoding NSUTF8StringEncoding coscript NSURL NSMutableURLRequest NSMutableData NSURLConnection sketch */
+var _ObjCClass = __webpack_require__(14)
 
-var _common = __webpack_require__(18);
+var ObjCClass = _ObjCClass.default
+
+function response (httpResponse, data) {
+  var keys = []
+  var all = []
+  var headers = {}
+  var header
+
+  for (var i = 0; i < httpResponse.allHeaderFields().allKeys().length; i++) {
+    var key = httpResponse.allHeaderFields().allKeys()[i].toLowerCase()
+    var value = httpResponse.allHeaderFields()[key]
+    keys.push(key)
+    all.push([key, value])
+    header = headers[key]
+    headers[key] = header ? (header + ',' + value) : value
+  }
+
+  return {
+    ok: (httpResponse.statusCode() / 200 | 0) == 1, // 200-399
+    status: httpResponse.statusCode(),
+    statusText: NSHTTPURLResponse.localizedStringForStatusCode(httpResponse.statusCode()),
+    url: httpResponse.URL(),
+    clone: response.bind(this, httpResponse, data),
+    text: function () {
+      return new Promise(function (resolve, reject) {
+        const str = NSString.alloc().initWithData_encoding(data, NSASCIIStringEncoding)
+        if (str) {
+          resolve(str)
+        } else {
+          reject(new Error("Couldn't parse body"))
+        }
+      })
+    },
+    json: function () {
+      return new Promise(function (resolve, reject) {
+        var str = NSString.alloc().initWithData_encoding(data, NSUTF8StringEncoding)
+        if (str) {
+          // parse errors are turned into exceptions, which cause promise to be rejected
+          var obj = JSON.parse(str)
+          resolve(obj)
+        } else {
+          reject(new Error('Could not parse JSON because it is not valid UTF-8 data.'))
+        }
+      })
+    },
+    blob: function () {
+      return Promise.resolve(data)
+    },
+    headers: {
+      keys: function () { return keys },
+      entries: function () { return all },
+      get: function (n) { return headers[n.toLowerCase()] },
+      has: function (n) { return n.toLowerCase() in headers }
+    }
+  }
+}
+
+// We create one ObjC class for ourselves here
+var DelegateClass
+
+function fetch (urlString, options) {
+  options = options || {}
+  var fiber
+  try {
+    fiber = coscript.createFiber()
+  } catch (err) {
+    coscript.shouldKeepAround = true
+  }
+  return new Promise(function (resolve, reject) {
+    var url = NSURL.alloc().initWithString(urlString)
+    var request = NSMutableURLRequest.requestWithURL(url)
+    request.setHTTPMethod(options.method || 'GET')
+
+    Object.keys(options.headers || {}).forEach(function (i) {
+      request.setValue_forHTTPHeaderField(options.headers[i], i)
+    })
+
+    if (options.body) {
+      var data
+      if (typeof options.body === 'string') {
+        var str = NSString.alloc().initWithString(options.body)
+        data = str.dataUsingEncoding(NSUTF8StringEncoding)
+      } else {
+        var error
+        data = NSJSONSerialization.dataWithJSONObject_options_error(options.body, NSJSONWritingPrettyPrinted, error)
+        if (error != null) {
+          return reject(error)
+        }
+        request.setValue_forHTTPHeaderField('' + data.length(), 'Content-Length')
+      }
+      request.setHTTPBody(data)
+    }
+
+    if (!DelegateClass) {
+      DelegateClass = ObjCClass({
+        classname: 'FetchPolyfillDelegate',
+        data: null,
+        httpResponse: null,
+        callbacks: null,
+
+        'connectionDidFinishLoading:': function (connection) {
+          if (fiber) {
+            fiber.cleanup()
+          } else {
+            coscript.shouldKeepAround = false
+          }
+          return this.callbacks.resolve(response(this.httpResponse, this.data))
+        },
+        'connection:didReceiveResponse:': function (connection, httpResponse) {
+          this.httpResponse = httpResponse
+          this.data = NSMutableData.alloc().init()
+        },
+        'connection:didFailWithError:': function (connection, error) {
+          if (fiber) {
+            fiber.cleanup()
+          } else {
+            coscript.shouldKeepAround = false
+          }
+          return this.callbacks.reject(error)
+        },
+        'connection:didReceiveData:': function (connection, data) {
+          this.data.appendData(data)
+        }
+      })
+    }
+
+    var connectionDelegate = DelegateClass.new()
+    connectionDelegate.callbacks = NSDictionary.dictionaryWithDictionary({
+      resolve,
+      reject
+    })
+
+    NSURLConnection.alloc().initWithRequest_delegate(request, connectionDelegate)
+  })
+}
+
+module.exports = fetch
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ }),
 /* 6 */
@@ -1020,7 +960,7 @@ Promise._unhandledRejectionFn = function _unhandledRejectionFn(err) {
 
 module.exports = Promise;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)["setTimeout"], __webpack_require__(8)["setImmediate"], __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)["setTimeout"], __webpack_require__(8)["setImmediate"], __webpack_require__(1)))
 
 /***/ }),
 /* 7 */
@@ -1036,7 +976,7 @@ module.exports = function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* globals coscript, sketch */
-var timeout = __webpack_require__(1)
+var timeout = __webpack_require__(0)
 
 function setImmediate(func, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10) {
   return timeout.setTimeout(func, 0, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10)
@@ -1058,8 +998,8 @@ module.exports = {
 
 var prepareValue = __webpack_require__(10)
 
-module.exports.toArray = __webpack_require__(4)
-module.exports.prepareStackTrace = __webpack_require__(3)
+module.exports.toArray = __webpack_require__(3)
+module.exports.prepareStackTrace = __webpack_require__(2)
 module.exports.prepareValue = prepareValue
 module.exports.prepareObject = prepareValue.prepareObject
 module.exports.prepareArray = prepareValue.prepareArray
@@ -1070,8 +1010,8 @@ module.exports.prepareArray = prepareValue.prepareArray
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign, no-var, vars-on-top, prefer-template, prefer-arrow-callback, func-names, prefer-destructuring, object-shorthand */
-var prepareStackTrace = __webpack_require__(3)
-var toArray = __webpack_require__(4)
+var prepareStackTrace = __webpack_require__(2)
+var toArray = __webpack_require__(3)
 
 function prepareArray(array, options) {
   return array.map(function(i) {
@@ -1491,424 +1431,6 @@ const object_setInstanceVariable = exports.object_setInstanceVariable = CFunc("o
 
 // We need Mocha to understand what an objc_super is so we can use it as a function argument
 addStructToBridgeSupport('objc_super', { type: objc_super_typeEncoding });
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.calculateNiceNum = calculateNiceNum;
-function calculateNiceNum(minNum, maxNum) {
-	// Nice max and min functions
-	var minPoint = void 0,
-	    maxPoint = void 0,
-	    maxTicks = 10,
-	    range = void 0,
-	    niceMin = void 0,
-	    niceMax = void 0;
-	/**
-  * Instantiates a new instance of the NiceScale class.
-  *
-  *  min the minimum data point on the axis
-  *  max the maximum data point on the axis
-  */
-	function niceScale(min, max) {
-		minPoint = min;
-		maxPoint = max;
-		calculate();
-		return {
-			niceMinimum: niceMin,
-			niceMaximum: niceMax
-		};
-	}
-
-	/**
-  * Calculate and update values for tick spacing and nice
-  * minimum and maximum data points on the axis.
-  */
-	function calculate() {
-		range = niceNum(maxPoint - minPoint, false);
-		tickSpacing = niceNum(range / (maxTicks - 1), true);
-		niceMin = Math.floor(minPoint / tickSpacing) * tickSpacing;
-		niceMax = Math.ceil(maxPoint / tickSpacing) * tickSpacing;
-	}
-
-	/**
-  * Returns a "nice" number approximately equal to range Rounds
-  * the number if round = true Takes the ceiling if round = false.
-  *
-  *  localRange the data range
-  *  round whether to round the result
-  *  a "nice" number to be used for the data range
-  */
-	function niceNum(localRange, round) {
-		var exponent; /** exponent of localRange */
-		var fraction; /** fractional part of localRange */
-		var niceFraction; /** nice, rounded fraction */
-
-		exponent = Math.floor(Math.log10(localRange));
-		fraction = localRange / Math.pow(10, exponent);
-
-		if (round) {
-			if (fraction < 1.5) niceFraction = 1;else if (fraction < 3) niceFraction = 2;else if (fraction < 7) niceFraction = 5;else niceFraction = 10;
-		} else {
-			if (fraction <= 1) niceFraction = 1;else if (fraction <= 2) niceFraction = 2;else if (fraction <= 5) niceFraction = 5;else niceFraction = 10;
-		}
-
-		return niceFraction * Math.pow(10, exponent);
-	}
-
-	return niceScale(minNum, maxNum);
-}
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.selectionToGroup = selectionToGroup;
-function selectionToGroup(canvas, chartName) {
-	// Push all selected layers to array
-	var allLayers = "";
-	if (canvas.doc.currentPage().currentArtboard() === null) {
-		allLayers = canvas.doc.currentPage().layers();
-	} else {
-		allLayers = canvas.doc.currentPage().currentArtboard().layers();
-	}
-	var layersCount = allLayers.count(),
-	    selectedLayers = new Array(),
-	    sortedLayers = new Array(),
-	    selectedLayer = "",
-	    layersMeta = [];
-
-	for (var l = 0; l < layersCount; l++) {
-
-		selectedLayer = allLayers[l].isSelected();
-
-		if (selectedLayer == true) {
-			selectedLayers.push({
-				"name": allLayers[l].name().toLowerCase(),
-				"layer": allLayers[l]
-			});
-		};
-	};
-
-	function compareObjects(a, b) {
-		if (a.name < b.name) {
-			return 1;
-		}
-		if (a.name > b.name) {
-			return -1;
-		}
-		return 0;
-	};
-
-	selectedLayers.sort(compareObjects);
-
-	for (var _l = 0; _l < selectedLayers.length; _l++) {
-		sortedLayers.push(selectedLayers[_l].layer);
-	};
-
-	// Group from selected layers
-	var layersToAdd = MSLayerArray.arrayWithLayers(sortedLayers);
-
-	var newGroup = MSLayerGroup.groupFromLayers(layersToAdd);
-	newGroup.setName(chartName);
-	canvas.doc.currentPage().changeSelectionBySelectingLayers_([]);
-}
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(fetch) {Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-exports.canvasCreate = canvasCreate;
-exports.canvasCreateMulti = canvasCreateMulti;
-exports.fetchData = fetchData;
-exports.processData = processData;
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-// function that returns all parameters of canvas
-function canvasCreate(context) {
-	var selection = context.selection;
-	var doc = context.document;
-	var page = "";
-	var canvasCount = selection.length;
-
-	var canvas = {
-		layer: selection[0],
-		height: selection[0].frame().height(),
-		width: selection[0].frame().width(),
-		x: selection[0].frame().x(),
-		y: selection[0].frame().y(),
-		doc: doc
-	};
-
-	return canvas;
-}
-
-function canvasCreateMulti(context) {
-	var selection = context.selection;
-	var doc = context.document;
-	var page = "";
-	var canvasCount = selection.length;
-	var heights = [],
-	    widths = [],
-	    xs = [],
-	    ys = [];
-
-	for (var i = 0; i < selection.length; i++) {
-		heights[i] = selection[i].frame().height();
-		widths[i] = selection[i].frame().width();
-		xs[i] = selection[i].frame().x();
-		ys[i] = selection[i].frame().y();
-	}
-
-	var canvas = {
-		layer: selection,
-		height: heights,
-		width: widths,
-		x: xs,
-		y: ys,
-		doc: doc
-	};
-
-	return canvas;
-}
-
-function fetchData(popupDataObj) {
-	var url = popupDataObj.url,
-	    keys = popupDataObj.key,
-	    dataTable = new Array(),
-	    dataMax = new Array(),
-	    dataMin = new Array();
-
-	return fetch(url).then(function (res) {
-		return res.json();
-	}).then(function (dataJSON) {
-		//return an array of values that match on a certain key
-		function getValues(obj, key) {
-			var objects = [];
-			for (var i in obj) {
-				if (!obj.hasOwnProperty(i)) continue;
-				if (_typeof(obj[i]) == 'object') {
-					objects = objects.concat(getValues(obj[i], key));
-				} else if (i == key) {
-					objects.push(obj[i]);
-				}
-			}
-			return objects;
-		}
-
-		for (var i in keys) {
-			var row = getValues(dataJSON, keys[i]);
-			for (var j in row) {
-				row[j] = parseFloat(row[j]).toFixed(2);
-			}
-			dataTable[i] = row;
-			dataMax[i] = Math.max.apply(Math, _toConsumableArray(dataTable[i]));
-			dataMin[i] = Math.min.apply(Math, _toConsumableArray(dataTable[i]));
-		}
-
-		var data = {
-			table: dataTable,
-			max: Math.max.apply(Math, dataMax),
-			min: Math.min.apply(Math, dataMin),
-			rows: dataTable.length,
-			columns: dataTable[0].length
-		};
-
-		dataObj = data;
-		return dataObj;
-	});
-}
-
-function processData(type) {
-	// function that search non numeric data in pasteBoard
-	var pasteBoard = NSPasteboard.generalPasteboard();
-	var stringPasteboard = String(pasteBoard.stringForType(NSPasteboardTypeString));
-
-	function searchInPasteBoard(pasteBoard) {
-		var onlyNumbers = pasteBoard.replace(/[^\w]/g, "");
-		var letterReg = /[a-zA-z]/;
-		return letterReg.test(onlyNumbers);
-	}
-
-	var letters = searchInPasteBoard(stringPasteboard);
-	// if 0 — only numbers
-
-	var dataObj = void 0,
-	    popupDataObj = {
-		key: ""
-	},
-	    dataTable = new Array(),
-	    dataMax = new Array(),
-	    dataMin = new Array();
-
-	switch (letters) {
-		case false:
-			{
-				var dataCreate = function dataCreate(pasteBoard) {
-					var dataRows = pasteBoard.replace(/[\t]/g, ", ").split("\n");
-					for (var i in dataRows) {
-						dataTable[i] = dataRows[i].replace(/[\s]/g, "").split(",");
-						for (var j in dataTable[i]) {
-							dataTable[i][j] = parseFloat(dataTable[i][j]);
-						}
-						dataMax[i] = Math.max.apply(Math, _toConsumableArray(dataTable[i]));
-						dataMin[i] = Math.min.apply(Math, _toConsumableArray(dataTable[i]));
-					}
-
-					// For MAX and MIN add support of stacked charts
-					var data = {
-						table: dataTable,
-						max: Math.max.apply(Math, dataMax),
-						min: Math.min.apply(Math, dataMin),
-						rows: dataTable.length,
-						columns: dataTable[0].length
-					};
-
-					return data;
-				};
-
-				;
-
-				dataObj = dataCreate(stringPasteboard);
-				return [dataObj, false];
-				break;
-			}
-		case true:
-			{
-				// Make sure that Sparklines, Progress Bar and Gauge Chart is OK
-
-				var dataRequestPopup = function dataRequestPopup(nameOne, nameTwo) {
-					var randomView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 40.0));
-
-					var rowsInput = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 15.0, 120.0, 25.0));
-					rowsInput.cell().setPlaceholderString(nameOne);
-					randomView.addSubview(rowsInput);
-
-					var columnsInput = "";
-					if (nameTwo != "") {
-						columnsInput = NSTextField.alloc().initWithFrame(NSMakeRect(140.0, 15.0, 120.0, 25.0));
-						columnsInput.cell().setPlaceholderString(nameTwo);
-						randomView.addSubview(columnsInput);
-					}
-
-					var apiView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 75.0));
-
-					var keyJSON = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 15.0, 260.0, 25.0));
-					keyJSON.cell().setPlaceholderString("Type keys in JSON to visualize it");
-					apiView.addSubview(keyJSON);
-
-					var urlJSON = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 50.0, 260.0, 25.0));
-					urlJSON.cell().setPlaceholderString("Type url to JSON");
-					apiView.addSubview(urlJSON);
-
-					var alert = COSAlertWindow["new"]();
-					alert.setMessageText("Data for Chart");
-					alert.addTextLabelWithValue("Random data");
-					alert.addAccessoryView(randomView);
-					alert.addTextLabelWithValue("or data from JSON");
-					alert.addAccessoryView(apiView);
-					alert.addButtonWithTitle("OK");
-					alert.addButtonWithTitle("Cancel");
-
-					alert.alert().window().setInitialFirstResponder(rowsInput);
-
-					if (nameTwo != "") {
-						rowsInput.setNextKeyView(columnsInput);
-					}
-					urlJSON.setNextKeyView(keyJSON);
-
-					// Run popup
-					var responseCode = alert.runModal();
-
-					var rowsCount = rowsInput.stringValue(),
-					    columnsCount = columnsInput.stringValue(),
-					    urlJSONString = urlJSON.stringValue(),
-					    keyJSONString = "";
-
-					var test = keyJSON.stringValue();
-
-					if (test.length() > 1) {
-						keyJSONString = keyJSON.stringValue().replace(/[\s]/g, "").split(",");
-					}
-
-					return popupData = {
-						rows: rowsCount,
-						columns: columnsCount,
-						url: urlJSONString,
-						key: keyJSONString
-					};
-				};
-
-				// Random data generaton
-				var createRandomData = function createRandomData(rows, columns, type) {
-					var dataMaxNumber = 100,
-					    dataRow = new Array();
-
-					for (var i = 0; i < rows; i++) {
-						if (type == "circle") {
-
-							var startRandNumber = 60,
-							    counterNumber = 0;
-
-							for (var j = 0; j < columns - 1; j++) {
-								dataRow[j] = Math.round(Math.random() * (dataMaxNumber - startRandNumber));
-								counterNumber = counterNumber + dataRow[j];
-								startRandNumber = counterNumber;
-							}
-							dataRow[columns - 1] = dataMaxNumber - counterNumber;
-						} else {
-							for (var _j = 0; _j < columns; _j++) {
-								// Improve random data generation algorithm !!!
-								dataRow[_j] = (Math.random() * dataMaxNumber).toFixed(0);
-							}
-						}
-
-						dataTable[i] = dataRow;
-						dataRow = [];
-						dataMax[i] = Math.max.apply(Math, _toConsumableArray(dataTable[i]));
-						dataMin[i] = Math.min.apply(Math, _toConsumableArray(dataTable[i]));
-					}
-
-					var data = {
-						table: dataTable,
-						max: Math.max.apply(Math, dataMax),
-						min: Math.min.apply(Math, dataMin),
-						rows: dataTable.length,
-						columns: dataTable[0].length
-					};
-
-					return data;
-				};
-
-				popupDataObj = dataRequestPopup("Categories", "Items");;
-
-				if (popupDataObj.url != "") {
-
-					return [popupDataObj, true];
-				} else {
-					dataObj = createRandomData(popupDataObj.rows, popupDataObj.columns, type);
-					return [dataObj, false];
-				}
-
-				break;
-			}
-	}
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
 /******/ ]);

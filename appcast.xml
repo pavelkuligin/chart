@@ -6,15 +6,15 @@
     <description>Create the most popular types of charts by real or random data</description>
     <language>en</language>
       <item>
-        <title>Version 2.9</title>
+        <title>Version 3.0</title>
         <description>
           <![CDATA[
             <ul>
-              <li>Test update</li>
+              <li>Chart update</li>
             </ul>
           ]]>
         </description>
-        <enclosure url="https://github.com/pavelkuligin/chart/archive/master.zip" sparkle:version="2.9" />
+        <enclosure url="https://github.com/pavelkuligin/chart/archive/master.zip" sparkle:version="3.0" />
       </item>
   </channel>
 </rss>

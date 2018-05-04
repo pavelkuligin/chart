@@ -1,0 +1,46 @@
+html {
+  box-sizing: border-box;
+  background: transparent;
+
+  /* Prevent the page to be scrollable */
+  overflow: hidden;
+
+  /* Force the default cursor, even on text */
+  cursor: default;
+}
+body{
+  background-color: #f7f7f7;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  /* Prevent the content from being selectionable */
+  user-select: none;
+}
+.container{
+  width: 80px;
+  padding: 4px;
+  box-sizing: border-box;
+}
+.icon{
+  float: left;
+  height: 28px;
+  width: 28px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(57,36,109,0.05);
+  margin: 4px;
+  cursor: pointer;
+  transition: box-shadow 0.1s ease-in-out;
+}
+.icon:hover{
+  box-shadow: 0 4px 8px 0 rgba(57,36,109,0.1);
+}
+img{
+  width: 28px;
+  height: 28px;
+}

@@ -567,18 +567,28 @@ exports['default'] = function (context) {
 	var url = context.plugin.urlForResourceNamed("params.json");
 	var result = NSString.stringWithContentsOfFile_encoding_error(url, NSUTF8StringEncoding, null);
 	var params = JSON.parse(result);
-
-	var curveType = Number(params.curveType);
 	var canvas = (0, _common.canvasCreate)(context);
-	canvas.doc.currentPage().changeSelectionBySelectingLayers_([]);
 
-	function createLineChart() {
-		// Set step by X between near points
-		var xStep = canvas.width / (dataObj.columns - 1);
+	function createVerticalBarChart() {
+		// Insert first zero-array
+		var zeroArray = new Array();
+		for (var i = 0; i < dataObj.columns; i++) {
+			zeroArray[i] = 0;
+		};
+		dataObj.table.unshift(zeroArray);
+		dataObj.rows = dataObj.rows + 1;
 
-		// Set first point of line
-		var x0 = canvas.x,
+		// Width of bar area
+		var step = canvas.width / dataObj.columns;
+
+		// Set margin between bars
+		var margin = params.barWidthParam * step;
+
+		// Set first point
+		var x0 = canvas.x + margin,
 		    y0 = 0,
+		    x1 = 0,
+		    y1 = 0,
 		    maxValue = dataObj.niceMax,
 		    minValue = 0,
 		    zero = canvas.y + canvas.height;
@@ -595,149 +605,82 @@ exports['default'] = function (context) {
 			minValue = 0;
 		}
 
-		//Loop by number of Lines
-		for (var i = 0; i < dataObj.rows; i++) {
-
-			y0 = zero - canvas.height / maxValue * (Number(dataObj.table[i][0]) + minValue);
-
-			// Create line chart
-			var line = NSBezierPath.bezierPath();
-			line.moveToPoint(NSMakePoint(x0, y0));
-
-			var xLast = x0,
-			    yLast = y0,
-			    xNext = 0;
-
-			for (var j = 1; j < dataObj.columns; j++) {
-
-				xNext = xLast + xStep;
-
-				var y = zero - canvas.height / maxValue * (Number(dataObj.table[i][j]) + minValue);
-
-				if (curveType === 1) {
-					line.curveToPoint_controlPoint1_controlPoint2_(NSMakePoint(xNext, y), NSMakePoint(xLast + xStep / 2, yLast), NSMakePoint(xNext - xStep / 2, y));
-				} else {
-					line.lineToPoint(NSMakePoint(xNext, y));
-				}
-
-				if (params.lineParams.dots === "true") {
-					var lineDot = MSOvalShape.alloc().init();
-					lineDot.frame = MSRect.rectWithRect(NSMakeRect(xLast - params.lineParams.endWidth / 2, yLast - params.lineParams.endWidth / 2, params.lineParams.endWidth, params.lineParams.endWidth));
-					var lineDotShape = MSShapeGroup.shapeWithPath(lineDot);
-					var fillDot = lineDotShape.style().addStylePartOfType(0);
-
-					if (params.lineParams.cuttedCenter === "true") {
-						fillDot.color = MSColor.colorWithRed_green_blue_alpha(255 / 255, 255 / 255, 255 / 255, 1);
-					} else {
-						fillDot.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[i][0] / 255, params.colorPalete[i][1] / 255, params.colorPalete[i][2] / 255, 1);
-					}
-
-					var borderDot = lineDotShape.style().addStylePartOfType(1);
-
-					if (params.lineParams.cuttedCenter === "true") {
-						borderDot.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[i][0] / 255, params.colorPalete[i][1] / 255, params.colorPalete[i][2] / 255, 1);
-					} else {
-						borderDot.color = MSColor.colorWithRed_green_blue_alpha(255 / 255, 255 / 255, 255 / 255, 1);
-					}
-
-					borderDot.thickness = params.lineParams.borderThickness;
-					if (params.lineParams.cuttedCenter == "true") {
-						borderDot.position = 1;
-					} else {
-						borderDot.position = 2;
-					}
-					lineDotShape.setName("dot_line_" + j);
-					var dotArray = NSArray.arrayWithArray([lineDotShape]);
-
-					if (canvas.doc.currentPage().currentArtboard() === null) {
-						canvas.doc.currentPage().addLayers(dotArray);
-					} else {
-						canvas.doc.currentPage().currentArtboard().addLayers(dotArray);
-					}
-
-					lineDotShape.select_byExpandingSelection(true, true);
-				}
-
-				xLast = xNext;
-				yLast = y;
-			};
-
-			// Create shape from path
-			var lineShape = MSShapeGroup.shapeWithBezierPath(line),
-			    border = lineShape.style().addStylePartOfType(1);
-
-			border.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[i][0] / 255, params.colorPalete[i][1] / 255, params.colorPalete[i][2] / 255, 1);
-			border.thickness = params.lineParams.borderThickness;
-			lineShape.setName("line_" + (i + 1));
-
-			var lineArray = NSArray.arrayWithArray([lineShape]);
-
-			// Add line and circle on artboard
-			if (canvas.doc.currentPage().currentArtboard() === null) {
-				canvas.doc.currentPage().addLayers(lineArray);
-			} else {
-				canvas.doc.currentPage().currentArtboard().addLayers(lineArray);
-			}
-			lineShape.select_byExpandingSelection(true, true);
-
-			// Add the last one
-			if (params.lineParams.dots === "true") {
-				var _lineDot = MSOvalShape.alloc().init();
-				_lineDot.frame = MSRect.rectWithRect(NSMakeRect(xLast - params.lineParams.endWidth / 2, yLast - params.lineParams.endWidth / 2, params.lineParams.endWidth, params.lineParams.endWidth));
-				var _lineDotShape = MSShapeGroup.shapeWithPath(_lineDot);
-				var _fillDot = _lineDotShape.style().addStylePartOfType(0);
-
-				if (params.lineParams.cuttedCenter === "true") {
-					_fillDot.color = MSColor.colorWithRed_green_blue_alpha(255 / 255, 255 / 255, 255 / 255, 1);
-				} else {
-					_fillDot.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[i][0] / 255, params.colorPalete[i][1] / 255, params.colorPalete[i][2] / 255, 1);
-				}
-
-				var _borderDot = _lineDotShape.style().addStylePartOfType(1);
-
-				if (params.lineParams.cuttedCenter === "true") {
-					_borderDot.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[i][0] / 255, params.colorPalete[i][1] / 255, params.colorPalete[i][2] / 255, 1);
-				} else {
-					_borderDot.color = MSColor.colorWithRed_green_blue_alpha(255 / 255, 255 / 255, 255 / 255, 1);
-				}
-
-				_borderDot.thickness = params.lineParams.borderThickness;
-				if (params.lineParams.cuttedCenter == "true") {
-					_borderDot.position = 1;
-				} else {
-					_borderDot.position = 2;
-				}
-				_lineDotShape.setName("dot_line_end");
-				var _dotArray = NSArray.arrayWithArray([_lineDotShape]);
-
-				if (canvas.doc.currentPage().currentArtboard() === null) {
-					canvas.doc.currentPage().addLayers(_dotArray);
-				} else {
-					canvas.doc.currentPage().currentArtboard().addLayers(_dotArray);
-				}
-				_lineDotShape.select_byExpandingSelection(true, true);
-			}
-
-			canvas.layer.select_byExpandingSelection(true, true);
+		var mainArray = new Array();
+		for (var z = 0; z < dataObj.columns; z++) {
+			mainArray[z] = zero - canvas.height / maxValue * (Number(dataObj.table[0][z]) + minValue);
 		}
 
-		(0, _selectionToGroup.selectionToGroup)(canvas, "Line chart");
+		//Loop by number of Lines
+		for (var _i = 0; _i < dataObj.rows - 1; _i++) {
+
+			var n = 0;
+			x0 = canvas.x + margin;
+
+			for (var j = 0; j < dataObj.columns; j++) {
+
+				x0 = x0 + step * n;
+				x1 = x0 + step - 2 * margin;
+				y0 = mainArray[j];
+				y1 = mainArray[j] - canvas.height / maxValue * Number(dataObj.table[_i + 1][j]);
+				mainArray[j] = y1;
+
+				// Create bar
+				var bar = NSBezierPath.bezierPath();
+				bar.moveToPoint(NSMakePoint(x0, y0));
+				bar.lineToPoint(NSMakePoint(x1, y0));
+				bar.lineToPoint(NSMakePoint(x1, y1));
+				bar.lineToPoint(NSMakePoint(x0, y1));
+				bar.closePath();
+
+				// Create barShape from path
+				var barShape = MSShapeGroup.shapeWithBezierPath(bar),
+				    fill = barShape.style().addStylePartOfType(0);
+				fill.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[_i][0] / 255, params.colorPalete[_i][1] / 255, params.colorPalete[_i][2] / 255, 1);
+				barShape.setName("bar_" + (_i + 1) + (j + 1));
+
+				var barArray = NSArray.arrayWithArray([barShape]);
+
+				// Add bar on artboard
+				if (canvas.doc.currentPage().currentArtboard() === null) {
+					canvas.doc.currentPage().addLayers(barArray);
+				} else {
+					canvas.doc.currentPage().currentArtboard().addLayers(barArray);
+				}
+				barShape.select_byExpandingSelection(true, true);
+
+				n = 1;
+			};
+		}
+
+		(0, _selectionToGroup.selectionToGroup)(canvas, "Bar chart");
 	}
 
 	function drawChart() {
+		var rowStacked = new Array();
+
+		for (var _i2 = 0; _i2 < dataObj.rows; _i2++) {
+			for (var j = 0; j < dataObj.columns; j++) {
+				rowStacked[j] = 0;
+			}
+		}
+
+		for (var _i3 = 0; _i3 < dataObj.rows; _i3++) {
+			for (var _j = 0; _j < dataObj.columns; _j++) {
+				rowStacked[_j] += dataObj.table[_i3][_j];
+			}
+		}
+
+		dataObj.max = Math.max.apply(null, rowStacked);
+		dataObj.min = Math.min.apply(null, rowStacked);
+
 		var niceScales = (0, _nicenum.calculateNiceNum)(dataObj.min, dataObj.max);
 		dataObj.niceMax = niceScales.niceMaximum;
 		dataObj.niceMin = niceScales.niceMinimum;
 
 		if (canvas.layer.isKindOfClass(MSShapeGroup)) {
-			createLineChart();
+			createVerticalBarChart();
 		} else {
 			var plot = canvas.layer.firstLayer();
-			canvas.height = plot.frame().height();
-			canvas.width = plot.frame().width();
-			canvas.x = plot.frame().x() + canvas.layer.frame().x();
-			canvas.y = plot.frame().y() + canvas.layer.frame().y();
-
 			plot.duplicate();
 			var layersInGroup = canvas.layer.containedLayersCount();
 			canvas.layer.layerAtIndex(0).select_byExpandingSelection(true, true);
@@ -749,7 +692,7 @@ exports['default'] = function (context) {
 
 			canvas.layer.ungroup();
 
-			createLineChart();
+			createVerticalBarChart();
 		}
 	}
 
