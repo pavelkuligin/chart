@@ -1,0 +1,119 @@
+{
+  "compatibleVersion": "49.2",
+  "bundleVersion": 1,
+  "description": "Create the most popular types of charts by real or random data",
+  "homepage": "https://github.com/pavelkuligin/chart",
+  "identifier": "com.sketchapp.examples.chart",
+  "appcast": "https://api.sketchpacks.com/v1/plugins/com.sketchapp.examples.chart/appcast",
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "Chart panel",
+      "identifier": "panel",
+      "description": "Tools",
+      "script": "panel.js"
+    },
+    {
+      "name": "Line chart",
+      "identifier": "linechart",
+      "description": "Create Line chart by real or random data",
+      "script": "linechart.js"
+    },
+    {
+      "name": "Area chart",
+      "identifier": "areachart",
+      "description": "Create Area chart by real or random data",
+      "script": "areachart.js"
+    },
+    {
+      "name": "Stacked area chart",
+      "identifier": "stackedareachart",
+      "description": "Create Stacked area chart by real or random data",
+      "script": "stackedareachart.js"
+    },
+    {
+      "name": "Vertical Bar chart",
+      "identifier": "verticalbarchart",
+      "description": "Create Vertical Bar chart by real or random data",
+      "script": "verticalbarchart.js"
+    },
+    {
+      "name": "Horizontal Bar chart",
+      "identifier": "horizontalbarchart",
+      "description": "Create Horizontal Bar chart by real or random data",
+      "script": "horizontalbarchart.js"
+    },
+    {
+      "name": "Scatter plot",
+      "identifier": "scatterplot",
+      "description": "Create Scatter plot by real or random data",
+      "script": "scatterplot.js"
+    },
+    {
+      "name": "Pie chart",
+      "identifier": "piechart",
+      "description": "Create Pie chart by real or random data",
+      "script": "piechart.js"
+    },
+    {
+      "name": "Donut chart",
+      "identifier": "donutchart",
+      "description": "Create Donut chart by real or random data",
+      "script": "donutchart.js"
+    },
+    {
+      "name": "Stream Graph",
+      "identifier": "streamgraph",
+      "description": "Create Stream Graph by real or random data",
+      "script": "streamgraph.js"
+    },
+    {
+      "name": "Sparkline",
+      "identifier": "sparkline",
+      "description": "Create Sparkline by real or random data",
+      "script": "sparkline.js"
+    },
+    {
+      "name": "Progress bar",
+      "identifier": "progresschart",
+      "description": "Create Progress bar by real or random data",
+      "script": "progresschart.js"
+    },
+    {
+      "name": "Gauge chart",
+      "identifier": "gaugechart",
+      "description": "Create Gauge chart by real or random data",
+      "script": "gaugechart.js"
+    },
+    {
+      "name": "Set params",
+      "identifier": "params",
+      "description": "Tools",
+      "script": "setparams.js"
+    }
+  ],
+  "menu": {
+    "title": "📈 Chart",
+    "items": [
+      "panel",
+      "linechart",
+      "areachart",
+      "stackedareachart",
+      "verticalbarchart",
+      "horizontalbarchart",
+      "scatterplot",
+      "piechart",
+      "donutchart",
+      "streamgraph",
+      "sparkline",
+      "progresschart",
+      "gaugechart",
+      "params"
+    ]
+  },
+  "version": "3.0.0",
+  "name": "📈 Chart",
+  "disableCocoaScriptPreprocessor": true,
+  "author": "Pavel Kuligin",
+  "authorEmail": "pavel.kuligin@behavox.com\n"
+}
