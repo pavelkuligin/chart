@@ -13,7 +13,7 @@ Chart is a Sketch plugin and uses real or random data to create the most popular
 <img width="800" height="538" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/table.gif" title="Google Sheets">
 
 ### Data from JSON
-<img width="800" height="554" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/json.gif" title="JSON">
+<img width="800" height="544" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/json.gif" title="JSON">
 
 ### Steps
 
