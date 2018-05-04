@@ -1,7 +1,6 @@
 <img width="888" height="517" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/chart-2x.png" title="Chart promo">
 
-Chart is a Sketch plugin for creation the most popular charts by real or random data. Chart supports copy-paste from any kind of text editor, for example: Notes, Word, Google Docs, etc. Also Chart supports copy-paste tabulated data from Google Sheets. [Read more on Medium](https://medium.com/@pavelkuligin/chart-the-most-powerful-data-visualization-plugin-for-sketch-6849155e09ab)
-
+Chart is a Sketch plugin and uses real or random data to create the most popular charts. Chart supports copy-paste from text editors like: Notes, Word, Google Docs, etc, and copy-paste tabulated data from Google Sheets. [Read more on Medium](https://medium.com/@pavelkuligin/chart-the-most-powerful-data-visualization-plugin-for-sketch-6849155e09ab)
 
 ## Chart demo
 
