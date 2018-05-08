@@ -666,17 +666,16 @@ exports['default'] = function (context) {
 
 		for (var _i3 = 0; _i3 < dataObj.rows; _i3++) {
 			for (var _j = 0; _j < dataObj.columns; _j++) {
-				rowStacked[_j] += dataObj.table[_i3][_j];
+				rowStacked[_j] += Number(dataObj.table[_i3][_j]);
 			}
 		}
-		log(dataObj.table);
-		log(rowStacked);
 
 		dataObj.max = Math.max.apply(null, rowStacked);
 		dataObj.min = Math.min.apply(null, rowStacked);
 
-		log(dataObj.max);
-		log(dataObj.min);
+		if (dataObj.max == dataObj.min) {
+			dataObj.min = 0;
+		}
 
 		var niceScales = (0, _nicenum.calculateNiceNum)(dataObj.min, dataObj.max);
 		dataObj.niceMax = niceScales.niceMaximum;

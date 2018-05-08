@@ -704,12 +704,16 @@ exports['default'] = function (context) {
 
 		for (var _i4 = 0; _i4 < dataObj.rows; _i4++) {
 			for (var _j2 = 0; _j2 < dataObj.columns; _j2++) {
-				rowStacked[_j2] += dataObj.table[_i4][_j2];
+				rowStacked[_j2] += Number(dataObj.table[_i4][_j2]);
 			}
 		}
 
 		dataObj.max = Math.max.apply(null, rowStacked);
 		dataObj.min = Math.min.apply(null, rowStacked);
+
+		if (dataObj.max == dataObj.min) {
+			dataObj.min = 0;
+		}
 
 		var niceScales = (0, _nicenum.calculateNiceNum)(dataObj.min, dataObj.max);
 		dataObj.niceMax = niceScales.niceMaximum;
