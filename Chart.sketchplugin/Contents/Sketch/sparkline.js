@@ -615,7 +615,8 @@ exports['default'] = function (context) {
 		};
 
 		// Create shape from path
-		var lineShape = MSShapeGroup.shapeWithBezierPath(line),
+		var newBezier = MSPath.pathWithBezierPath(line);
+		var lineShape = MSShapeGroup.shapeWithBezierPath(newBezier),
 		    border = lineShape.style().addStylePartOfType(1);
 
 		border.color = MSColor.colorWithRed_green_blue_alpha(params.sparkParams.sparkColor[0] / 255, params.sparkParams.sparkColor[1] / 255, params.sparkParams.sparkColor[2] / 255, 1);

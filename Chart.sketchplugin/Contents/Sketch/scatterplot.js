@@ -615,7 +615,8 @@ exports['default'] = function (context) {
 
 				var scatterCircle = NSBezierPath.bezierPath();
 				scatterCircle.appendBezierPathWithArcWithCenter_radius_startAngle_endAngle(NSMakePoint(pointX, pointY), diameter / 2, 0, 360);
-				var scatterShape = MSShapeGroup.shapeWithBezierPath(scatterCircle);
+				var newBezier = MSPath.pathWithBezierPath(scatterCircle);
+				var scatterShape = MSShapeGroup.shapeWithBezierPath(newBezier);
 				var fill = scatterShape.style().addStylePartOfType(0);
 				fill.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[_i][0] / 255, params.colorPalete[_i][1] / 255, params.colorPalete[_i][2] / 255, 0.8);
 

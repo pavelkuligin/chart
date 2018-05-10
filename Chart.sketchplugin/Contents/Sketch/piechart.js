@@ -602,7 +602,8 @@ exports['default'] = function (context) {
 			startAngle = endAngle;
 
 			// Create shape from path
-			var arcShape = MSShapeGroup.shapeWithBezierPath(arc);
+			var newBezier = MSPath.pathWithBezierPath(arc);
+			var arcShape = MSShapeGroup.shapeWithBezierPath(newBezier);
 			var fillPie = arcShape.style().addStylePartOfType(0);
 			fillPie.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[j][0] / 255, params.colorPalete[j][1] / 255, params.colorPalete[j][2] / 255, 1);
 			arcShape.setName("c_pie_" + (j + 1));

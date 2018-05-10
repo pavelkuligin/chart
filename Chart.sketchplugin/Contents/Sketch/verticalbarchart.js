@@ -633,7 +633,8 @@ exports['default'] = function (context) {
 				bar.closePath();
 
 				// Create barShape from path
-				var barShape = MSShapeGroup.shapeWithBezierPath(bar),
+				var newBezier = MSPath.pathWithBezierPath(bar);
+				var barShape = MSShapeGroup.shapeWithBezierPath(newBezier),
 				    fill = barShape.style().addStylePartOfType(0);
 				fill.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[_i][0] / 255, params.colorPalete[_i][1] / 255, params.colorPalete[_i][2] / 255, 1);
 				barShape.setName("bar_" + (_i + 1) + (j + 1));

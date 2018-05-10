@@ -1,5 +1,5 @@
 {
-  "compatibleVersion": "49.2",
+  "compatibleVersion": "50.0",
   "bundleVersion": 1,
   "description": "Create the most popular types of charts by real or random data",
   "homepage": "https://github.com/pavelkuligin/chart",
@@ -111,7 +111,7 @@
       "params"
     ]
   },
-  "version": "3.1.0",
+  "version": "3.2.0",
   "name": "📈 Chart",
   "disableCocoaScriptPreprocessor": true,
   "author": "Pavel Kuligin",

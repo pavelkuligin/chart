@@ -583,7 +583,8 @@ exports['default'] = function (context) {
 		arc.appendBezierPathWithArcWithCenter_radius_startAngle_endAngle(NSMakePoint(x0, yCenter), radius, startAngle, endAngle);
 
 		// Create shape from path
-		var arcShape = MSShapeGroup.shapeWithBezierPath(arc);
+		var newBezier = MSPath.pathWithBezierPath(arc);
+		var arcShape = MSShapeGroup.shapeWithBezierPath(newBezier);
 		var borderFront = arcShape.style().addStylePartOfType(1);
 		borderFront.color = MSColor.colorWithRed_green_blue_alpha(params.progressParams.progressBarColor[0] / 255, params.progressParams.progressBarColor[1] / 255, params.progressParams.progressBarColor[2] / 255, 1);
 		borderFront.thickness = params.progressParams.progressBarBorder;
@@ -594,7 +595,8 @@ exports['default'] = function (context) {
 		arcBack.appendBezierPathWithArcWithCenter_radius_startAngle_endAngle(NSMakePoint(x0, yCenter), radius, startAngle, 0);
 
 		// Create shape from path
-		var arcBackShape = MSShapeGroup.shapeWithBezierPath(arcBack);
+		var newBezierBack = MSPath.pathWithBezierPath(arcBack);
+		var arcBackShape = MSShapeGroup.shapeWithBezierPath(newBezierBack);
 		var borderBack = arcBackShape.style().addStylePartOfType(1);
 		borderBack.color = MSColor.colorWithRed_green_blue_alpha(240 / 255, 240 / 255, 240 / 255, 1);
 		borderBack.thickness = params.progressParams.progressBarBorder;

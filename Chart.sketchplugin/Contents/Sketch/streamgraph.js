@@ -673,7 +673,8 @@ exports['default'] = function (context) {
 			area.closePath();
 
 			// Create shape from path
-			var areaShape = MSShapeGroup.shapeWithBezierPath(area),
+			var newBezier = MSPath.pathWithBezierPath(area);
+			var areaShape = MSShapeGroup.shapeWithBezierPath(newBezier),
 			    fill = areaShape.style().addStylePartOfType(0);
 
 			fill.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[_i2][0] / 255, params.colorPalete[_i2][1] / 255, params.colorPalete[_i2][2] / 255, 1);

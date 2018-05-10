@@ -600,7 +600,8 @@ exports['default'] = function (context) {
 			startAngle = endAngle;
 
 			// Create shape from path
-			var arcShape = MSShapeGroup.shapeWithBezierPath(arc);
+			var newBezier = MSPath.pathWithBezierPath(arc);
+			var arcShape = MSShapeGroup.shapeWithBezierPath(newBezier);
 			var border = arcShape.style().addStylePartOfType(1);
 			border.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[j][0] / 255, params.colorPalete[j][1] / 255, params.colorPalete[j][2] / 255, 1);
 			border.thickness = params.donutBorder;
