@@ -1,0 +1,67 @@
+{"content": [
+	{
+		"id": 1,
+		"date": "Today 12:34",
+		"description": "Alma Powell Norton, Collin Powell",
+		"labels": [
+			{
+				"value": "compliance",
+				"type": "negative"
+			}
+		],
+		"title": "Work Complaints",
+		"body": ""
+	},
+	{
+		"id": 2,
+		"date": "Today 11:59",
+		"description": "Goldman Sachs",
+		"labels": [
+			{
+				"value": "front office",
+				"type": "negative"
+			}
+		],
+		"title": "Overstaffing",
+		"body": ""
+	},
+	{	
+		"id": 3,
+		"date": "Today 11:50",
+		"description": "Nancy Porter",
+		"labels": [
+			{
+				"value": "fraud",
+				"type": "negative"
+			}
+		],
+		"title": "Wash trades",
+		"body": ""
+	},
+	{	
+		"id": 4,
+		"date": "Today 10:30",
+		"description": "Nicholas Cook",
+		"labels": [
+			{
+				"value": "front office",
+				"type": "positive"
+			}
+		],
+		"title": "Money maker employee",
+		"body": ""
+	},
+		{	
+		"id": 5,
+		"date": "Today 06:28",
+		"description": "Nicholas Cook, Nancy Porter",
+		"labels": [
+			{
+				"value": "infosec",
+				"type": "negative"
+			}
+		],
+		"title": "Insider dealing",
+		"body": ""
+	}
+]}
