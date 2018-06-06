@@ -585,12 +585,13 @@ exports['default'] = function (context) {
 
 		for (var _i = 0; _i < dataObj.columns; _i++) {
 			for (var j = 0; j < dataObj.rows; j++) {
-				colSum = colSum + dataObj.table[j][_i];
+				colSum = colSum + Number(dataObj.table[j][_i]);
 			}
 			streamAdd = (dataObj.niceMax - colSum) / 2;
+			log(streamAdd);
 
 			for (var k = 0; k < 1; k++) {
-				dataObj.table[k][_i] = dataObj.table[k][_i] + streamAdd;
+				dataObj.table[k][_i] = Number(dataObj.table[k][_i]) + streamAdd;
 			}
 			colSum = 0;
 		}
