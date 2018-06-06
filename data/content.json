@@ -1,0 +1,119 @@
+{"content": [
+	{
+		"id": 1,
+		"type": "email",
+		"date": "18/07/2017 23:50:00",
+		"from": {
+			"person": "keegan@enron.com",
+			"me": false
+		},
+		"to": [{
+			"person": "Hunter Shively",
+			"me": true
+		}],
+		"cc": null,
+		"bcc": null,
+		"attachments": true,
+		"labels": [
+			{
+				"value": "uk fraude"
+			}
+		],
+		"subject": "Automatic reply",
+		"body": "<p>Good Afternoon All,</p><p>FYI, I will be out of the office to attend a doctor's appointment tomorrow morning at 9am.  I will be having some blood work done so I am unsure as to the exact time that I will arrive at the office, but I will be returning immediately after the appointment .  Please leave me a note, voicemail or email in my absence and I will respond promptly upon receipt.  Thank you!</p><p>Keegan<br/>Enron Wholesale Services<br/>713-345-3317</p>"
+	},
+	{
+		"id": 2,
+		"type": "email",
+		"date": "21/12/2001 00:49:00",
+		"from": {
+			"person": "John Lavorato",
+			"me": true
+		},
+		"to": [{
+			"person": "Phillip Allen",
+			"me": true
+		}],
+		"cc": null,
+		"bcc": null,
+		"attachments": false,
+		"labels": null,
+		"subject": "Chase Backtest",
+		"body": "<p>Steve</p><p>Following on from our discussion concerning the back testing data, we have re-checked the underlying data with our middle office. There were some errors in your file which we have now corrected, and for clarity, included losses in the backtest file, since these are what we consider in the backtest process.</p> <p>I trust this helps - let us know if you need anything further</p><p>Regards</p>"
+	},
+	{	
+		"id": 3,
+		"type": "email",
+		"date": "17/12/2001 19:20:18",
+		"from": {
+			"person": "Stephanie Sever",
+			"me": false
+		},
+		"to": [
+			{
+				"person": "Phillip Allen",
+				"me": true
+			},
+			{
+				"person": "John Arnold",
+				"me": true
+			},
+			{
+				"person": "Thomas Martin",
+				"me": true
+			},
+			{
+				"person": "Scott Neal",
+				"me": true
+			},
+			{
+				"person": "Hunter Shively",
+				"me": true
+			}
+		],
+		"cc": [
+			{
+				"person": "Jennifer Denny",
+				"me": false
+			},
+			{
+				"person": "Lisa Lees",
+				"me": false
+			}
+		],
+		"bcc": null,
+		"attachments": false,
+		"labels": null,
+		"subject": "New Company - Online Trader Access (Stack Manager & Website)",
+		"body": "<p>Please populate the attached worksheets for Stack Manager & Website Access.  I have added the Gas product types and a drop down for each user/product type  to populate with READ, EXECUTE or NONE.  For READ ONLY Website ID's, additional population is NOT necessary.  Please add or remove names as necessary and return to me once complete.  Let me know if you have any questions.</p><p>Thank you,</p><p>Stephanie Sever<br />EnronOnline<br />713-853-3465</p>"
+	}
+]}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
