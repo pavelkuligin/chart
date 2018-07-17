@@ -1132,7 +1132,8 @@ __webpack_require__.r(__webpack_exports__);
         yCenter = y0 + canvas.width[Num] / 2,
         startAngle = -90,
         endAngle = 0,
-        addAngle = 0;
+        addAngle = 0,
+        sortOption = params.sortOption;
     var sortedItems = new Array();
     sortedItems = dataObj.table[Num];
 
@@ -1140,7 +1141,9 @@ __webpack_require__.r(__webpack_exports__);
       return b - a;
     }
 
-    sortedItems.sort(compareNumeric);
+    if (sortOption == "true") {
+      sortedItems.sort(compareNumeric);
+    }
 
     for (var j = 0; j < dataObj.columns; j++) {
       endAngle = sortedItems[j] * 3.6 - 90 + addAngle;

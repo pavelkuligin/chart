@@ -832,6 +832,7 @@ __webpack_require__.r(__webpack_exports__);
   log(params);
   var colors = JSON.stringify(params.colorPalete).slice(1).slice(0, -1);
   var progressColor = JSON.stringify(params.progressParams.progressBarColor);
+  var barWidth = params.barWidthParam;
   var sparkColor = JSON.stringify(params.sparkParams.sparkColor);
   var curveType = "";
   var scatterType = "";
@@ -891,6 +892,11 @@ __webpack_require__.r(__webpack_exports__);
   progressColorInput.cell().setPlaceholderString("e.g., [52,52,52]");
   progressColorInput.cell().setStringValue("" + progressColor);
   progressView.addSubview(progressColorInput);
+  var barsView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 25.0));
+  var barsInput = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 120.0, 25.0));
+  barsInput.cell().setPlaceholderString("from 0.1 to 0.9");
+  barsInput.cell().setStringValue("" + barWidth);
+  barsView.addSubview(barsInput);
   var sparkView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 25.0));
   var sparkInput = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 120.0, 25.0));
   sparkInput.cell().setPlaceholderString("e.g., [52,52,52]");
@@ -904,6 +910,8 @@ __webpack_require__.r(__webpack_exports__);
   alert.addAccessoryView(colorsView);
   alert.addTextLabelWithValue("Line chart: Dots & Cutted center");
   alert.addAccessoryView(linesSecondView);
+  alert.addTextLabelWithValue("Width of bars");
+  alert.addAccessoryView(barsView);
   alert.addTextLabelWithValue("Progress bar: Color");
   alert.addAccessoryView(progressView);
   alert.addTextLabelWithValue("Sparkline: Color");
@@ -919,8 +927,9 @@ __webpack_require__.r(__webpack_exports__);
       newLineDot = dotSelect.indexOfSelectedItem(),
       newLineCut = cutSelect.indexOfSelectedItem(),
       newProgressColor = progressColorInput.stringValue(),
-      newSparkColor = sparkInput.stringValue();
-  newBubble = scatterSelect.indexOfSelectedItem();
+      newBarsWidth = barsInput.stringValue(),
+      newSparkColor = sparkInput.stringValue(),
+      newBubble = scatterSelect.indexOfSelectedItem();
   var newColorsForm = JSON.parse("[" + newColors + "]");
   params.colorPalete = newColorsForm;
   var newLineDotForm = "true",
@@ -955,6 +964,7 @@ __webpack_require__.r(__webpack_exports__);
   params.lineParams.dots = newLineDotForm;
   params.scatterParams.bubbles = newBubbleForm;
   params.lineParams.cuttedCenter = newLineCutForm;
+  params.barWidthParam = Number(newBarsWidth);
   params.progressParams.progressBarColor = JSON.parse(newProgressColor);
   params.sparkParams.sparkColor = JSON.parse(newSparkColor);
   log(params);

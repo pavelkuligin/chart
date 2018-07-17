@@ -33,5 +33,6 @@
 	"scatterParams": {
 		"bubbles": "true",
 		"diametr": 10
-	}
+	},
+	"sortOption": "false"
 }

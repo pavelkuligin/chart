@@ -1292,7 +1292,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var step = canvas.width / dataObj.columns; // Set margin between bars
 
-    var margin = params.barWidthParam * step; // Set first point
+    var margin = Number(params.barWidthParam) * step; // Set first point
 
     var x0 = canvas.x + margin,
         y0 = 0,
