@@ -1230,8 +1230,6 @@ __webpack_require__.r(__webpack_exports__);
       maxDCount = Math.max.apply(null, maxDiametr);
     }
 
-    log(N);
-
     for (var _i = 0; _i < dataObj.rows / N; _i++) {
       for (var _j = 0; _j < dataObj.columns; _j++) {
         var maxValue = dataObj.niceMax,
@@ -1249,8 +1247,8 @@ __webpack_require__.r(__webpack_exports__);
           diameter = canvas.width * 0.1 / maxDCount * Number(dataObj.table[_i * _categories + 2][_j]);
         }
 
-        var pointX = canvas.x + canvas.width / maxValue * Number(dataObj.table[_i * _categories][_j]);
-        pointY = canvas.y + canvas.height - canvas.height / maxValue * Number(dataObj.table[_i * _categories + 1][_j]);
+        var pointX = canvas.x + canvas.width / maxValue * Number(dataObj.table[_i * _categories][_j]),
+            pointY = canvas.y + canvas.height - canvas.height / maxValue * Number(dataObj.table[_i * _categories + 1][_j]);
         var scatterCircle = NSBezierPath.bezierPath();
         scatterCircle.appendBezierPathWithArcWithCenter_radius_startAngle_endAngle(NSMakePoint(pointX, pointY), diameter / 2, 0, 360);
         var newBezier = MSPath.pathWithBezierPath(scatterCircle);
