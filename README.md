@@ -82,7 +82,7 @@ Select "Set options" in the Chart menu to customize your own chart styles. Paste
 - [x] Stream Graph
 - [x] Scatter Plot and Bubble Chart
 - [x] Fetch data from JSON
-- [ ] Candlestick Chart (Mar 2018)
+- [ ] Candlestick Chart (Oct 2018)
 
 ### Support Chart
 
