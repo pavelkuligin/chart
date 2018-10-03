@@ -925,8 +925,7 @@ function fetchData(popupDataObj) {
       rows: dataTable.length,
       columns: dataTable[0].length
     };
-    dataObj = data;
-    return dataObj;
+    return data;
   });
 }
 function processData(type) {
