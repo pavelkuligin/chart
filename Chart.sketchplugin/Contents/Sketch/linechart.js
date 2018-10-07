@@ -951,149 +951,144 @@ function processData(type) {
 
   switch (letters) {
     case false:
-      {
-        var dataCreate = function dataCreate(pasteBoard) {
-          var dataRows = pasteBoard.replace(/[\t]/g, ", ").split("\n");
+      var dataCreate = function dataCreate(pasteBoard) {
+        var dataRows = pasteBoard.replace(/[\t]/g, ", ").split("\n");
 
-          for (var i in dataRows) {
-            dataTable[i] = dataRows[i].replace(/[\s]/g, "").split(",");
+        for (var i in dataRows) {
+          dataTable[i] = dataRows[i].replace(/[\s]/g, "").split(",");
 
-            for (var j in dataTable[i]) {
-              dataTable[i][j] = parseFloat(dataTable[i][j]);
-            }
+          for (var j in dataTable[i]) {
+            dataTable[i][j] = parseFloat(dataTable[i][j]);
+          }
 
-            dataMax[i] = Math.max.apply(Math, _toConsumableArray(dataTable[i]));
-            dataMin[i] = Math.min.apply(Math, _toConsumableArray(dataTable[i]));
-          } // For MAX and MIN add support of stacked charts
+          dataMax[i] = Math.max.apply(Math, _toConsumableArray(dataTable[i]));
+          dataMin[i] = Math.min.apply(Math, _toConsumableArray(dataTable[i]));
+        } // For MAX and MIN add support of stacked charts
 
 
-          var data = {
-            table: dataTable,
-            max: Math.max.apply(Math, dataMax),
-            min: Math.min.apply(Math, dataMin),
-            rows: dataTable.length,
-            columns: dataTable[0].length
-          };
-          return data;
+        var data = {
+          table: dataTable,
+          max: Math.max.apply(Math, dataMax),
+          min: Math.min.apply(Math, dataMin),
+          rows: dataTable.length,
+          columns: dataTable[0].length
         };
+        return data;
+      };
 
-        ;
-        dataObj = dataCreate(stringPasteboard);
-        return [dataObj, false];
-        break;
-      }
+      ;
+      dataObj = dataCreate(stringPasteboard);
+      return [dataObj, false];
+      break;
 
     case true:
-      {
-        // Make sure that Sparklines, Progress Bar and Gauge Chart is OK
-        var dataRequestPopup = function dataRequestPopup(nameOne, nameTwo) {
-          var randomView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 40.0));
-          var rowsInput = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 15.0, 120.0, 25.0));
-          rowsInput.cell().setPlaceholderString(nameOne);
-          randomView.addSubview(rowsInput);
-          var columnsInput = "";
+      // Make sure that Sparklines, Progress Bar and Gauge Chart is OK
+      var dataRequestPopup = function dataRequestPopup(nameOne, nameTwo) {
+        var randomView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 40.0));
+        var rowsInput = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 15.0, 120.0, 25.0));
+        rowsInput.cell().setPlaceholderString(nameOne);
+        randomView.addSubview(rowsInput);
+        var columnsInput = "";
 
-          if (nameTwo != "") {
-            columnsInput = NSTextField.alloc().initWithFrame(NSMakeRect(140.0, 15.0, 120.0, 25.0));
-            columnsInput.cell().setPlaceholderString(nameTwo);
-            randomView.addSubview(columnsInput);
-          }
-
-          var apiView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 75.0));
-          var keyJSON = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 15.0, 260.0, 25.0));
-          keyJSON.cell().setPlaceholderString("Type keys in JSON to visualize it");
-          apiView.addSubview(keyJSON);
-          var urlJSON = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 50.0, 260.0, 25.0));
-          urlJSON.cell().setPlaceholderString("Type url to JSON");
-          apiView.addSubview(urlJSON);
-          var alert = COSAlertWindow.new();
-          alert.setMessageText("Data for Chart");
-          alert.addTextLabelWithValue("Random data");
-          alert.addAccessoryView(randomView);
-          alert.addTextLabelWithValue("or data from JSON");
-          alert.addAccessoryView(apiView);
-          alert.addButtonWithTitle("OK");
-          alert.addButtonWithTitle("Cancel");
-          alert.alert().window().setInitialFirstResponder(rowsInput);
-
-          if (nameTwo != "") {
-            rowsInput.setNextKeyView(columnsInput);
-          }
-
-          urlJSON.setNextKeyView(keyJSON); // Run popup
-
-          var responseCode = alert.runModal();
-          var rowsCount = rowsInput.stringValue(),
-              columnsCount = columnsInput.stringValue(),
-              urlJSONString = urlJSON.stringValue(),
-              keyJSONString = "";
-          var test = keyJSON.stringValue();
-
-          if (test.length() > 1) {
-            keyJSONString = keyJSON.stringValue().replace(/[\s]/g, "").split(",");
-          }
-
-          var popupData = {};
-          return popupData = {
-            rows: rowsCount,
-            columns: columnsCount,
-            url: urlJSONString,
-            key: keyJSONString
-          };
-        };
-
-        // Random data generaton
-        var createRandomData = function createRandomData(rows, columns, type) {
-          var dataMaxNumber = 100,
-              dataRow = new Array();
-
-          for (var i = 0; i < rows; i++) {
-            if (type == "circle") {
-              var startRandNumber = 60,
-                  counterNumber = 0;
-
-              for (var j = 0; j < columns - 1; j++) {
-                dataRow[j] = Math.round(Math.random() * (dataMaxNumber - startRandNumber));
-                counterNumber = counterNumber + dataRow[j];
-                startRandNumber = counterNumber;
-              }
-
-              dataRow[columns - 1] = dataMaxNumber - counterNumber;
-            } else {
-              for (var _j = 0; _j < columns; _j++) {
-                // Improve random data generation algorithm !!!
-                dataRow[_j] = (Math.random() * dataMaxNumber).toFixed(0);
-              }
-            }
-
-            dataTable[i] = dataRow;
-            dataRow = [];
-            dataMax[i] = Math.max.apply(Math, _toConsumableArray(dataTable[i]));
-            dataMin[i] = Math.min.apply(Math, _toConsumableArray(dataTable[i]));
-          }
-
-          var data = {
-            table: dataTable,
-            max: Math.max.apply(Math, dataMax),
-            min: Math.min.apply(Math, dataMin),
-            rows: dataTable.length,
-            columns: dataTable[0].length
-          };
-          return data;
-        };
-
-        popupDataObj = dataRequestPopup("Categories", "Items");
-        ;
-
-        if (popupDataObj.url != "") {
-          return [popupDataObj, true];
-        } else {
-          dataObj = createRandomData(popupDataObj.rows, popupDataObj.columns, type);
-          return [dataObj, false];
+        if (nameTwo != "") {
+          columnsInput = NSTextField.alloc().initWithFrame(NSMakeRect(140.0, 15.0, 120.0, 25.0));
+          columnsInput.cell().setPlaceholderString(nameTwo);
+          randomView.addSubview(columnsInput);
         }
 
-        break;
+        var apiView = NSView.alloc().initWithFrame(NSMakeRect(0.0, 0.0, 260.0, 75.0));
+        var keyJSON = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 15.0, 260.0, 25.0));
+        keyJSON.cell().setPlaceholderString("Type keys in JSON to visualize it");
+        apiView.addSubview(keyJSON);
+        var urlJSON = NSTextField.alloc().initWithFrame(NSMakeRect(0.0, 50.0, 260.0, 25.0));
+        urlJSON.cell().setPlaceholderString("Type url to JSON");
+        apiView.addSubview(urlJSON);
+        var alert = COSAlertWindow.new();
+        alert.setMessageText("Data for Chart");
+        alert.addTextLabelWithValue("Random data");
+        alert.addAccessoryView(randomView);
+        alert.addTextLabelWithValue("or data from JSON");
+        alert.addAccessoryView(apiView);
+        alert.addButtonWithTitle("OK");
+        alert.addButtonWithTitle("Cancel");
+        alert.alert().window().setInitialFirstResponder(rowsInput);
+
+        if (nameTwo != "") {
+          rowsInput.setNextKeyView(columnsInput);
+        }
+
+        urlJSON.setNextKeyView(keyJSON); // Run popup
+
+        var responseCode = alert.runModal();
+        var rowsCount = rowsInput.stringValue(),
+            columnsCount = columnsInput.stringValue(),
+            urlJSONString = urlJSON.stringValue(),
+            keyJSONString = "";
+        var test = keyJSON.stringValue();
+
+        if (test.length() > 1) {
+          keyJSONString = keyJSON.stringValue().replace(/[\s]/g, "").split(",");
+        }
+
+        var popupData = {};
+        return popupData = {
+          rows: rowsCount,
+          columns: columnsCount,
+          url: urlJSONString,
+          key: keyJSONString
+        };
+      };
+
+      popupDataObj = dataRequestPopup("Categories", "Items"); // Random data generaton
+
+      var createRandomData = function createRandomData(rows, columns, type) {
+        var dataMaxNumber = 100,
+            dataRow = new Array();
+
+        for (var i = 0; i < rows; i++) {
+          if (type == "circle") {
+            var startRandNumber = 60,
+                counterNumber = 0;
+
+            for (var j = 0; j < columns - 1; j++) {
+              dataRow[j] = Math.round(Math.random() * (dataMaxNumber - startRandNumber));
+              counterNumber = counterNumber + dataRow[j];
+              startRandNumber = counterNumber;
+            }
+
+            dataRow[columns - 1] = dataMaxNumber - counterNumber;
+          } else {
+            for (var _j = 0; _j < columns; _j++) {
+              // Improve random data generation algorithm !!!
+              dataRow[_j] = (Math.random() * dataMaxNumber).toFixed(0);
+            }
+          }
+
+          dataTable[i] = dataRow;
+          dataRow = [];
+          dataMax[i] = Math.max.apply(Math, _toConsumableArray(dataTable[i]));
+          dataMin[i] = Math.min.apply(Math, _toConsumableArray(dataTable[i]));
+        }
+
+        var data = {
+          table: dataTable,
+          max: Math.max.apply(Math, dataMax),
+          min: Math.min.apply(Math, dataMin),
+          rows: dataTable.length,
+          columns: dataTable[0].length
+        };
+        return data;
+      };
+
+      ;
+
+      if (popupDataObj.url != "") {
+        return [popupDataObj, true];
+      } else {
+        dataObj = createRandomData(popupDataObj.rows, popupDataObj.columns, type);
+        return [dataObj, false];
       }
+
   }
 }
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/sketch-polyfill-fetch/lib/index.js */ "./node_modules/sketch-polyfill-fetch/lib/index.js")))
@@ -1123,7 +1118,6 @@ __webpack_require__.r(__webpack_exports__);
   var params = JSON.parse(result);
   var curveType = Number(params.curveType);
   var canvas = Object(_common__WEBPACK_IMPORTED_MODULE_2__["canvasCreate"])(context);
-  canvas.doc.currentPage().changeSelectionBySelectingLayers_([]);
 
   function createLineChart() {
     // Set step by X between near points
@@ -1167,9 +1161,12 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         if (params.lineParams.dots === "true") {
-          var lineDot = MSOvalShape.alloc().init();
-          lineDot.frame = MSRect.rectWithRect(NSMakeRect(xLast - params.lineParams.endWidth / 2, yLast - params.lineParams.endWidth / 2, params.lineParams.endWidth, params.lineParams.endWidth));
-          var lineDotShape = MSShapeGroup.shapeWithPath(lineDot);
+          var lineDot = NSBezierPath.bezierPath();
+          lineDot.appendBezierPathWithArcWithCenter_radius_startAngle_endAngle(NSMakePoint(xLast, yLast), params.lineParams.endWidth / 2, 0, 360);
+
+          var _newBezier = MSPath.pathWithBezierPath(lineDot);
+
+          var lineDotShape = MSShapeGroup.layerWithPath(_newBezier);
           var fillDot = lineDotShape.style().addStylePartOfType(0);
 
           if (params.lineParams.cuttedCenter === "true") {
@@ -1213,7 +1210,7 @@ __webpack_require__.r(__webpack_exports__);
       ; // Create shape from path
 
       var newBezier = MSPath.pathWithBezierPath(line);
-      var lineShape = MSShapeGroup.shapeWithBezierPath(newBezier),
+      var lineShape = MSShapeGroup.layerWithPath(newBezier),
           border = lineShape.style().addStylePartOfType(1);
       border.color = MSColor.colorWithRed_green_blue_alpha(params.colorPalete[i][0] / 255, params.colorPalete[i][1] / 255, params.colorPalete[i][2] / 255, 1);
       border.thickness = params.lineParams.borderThickness;
@@ -1229,11 +1226,13 @@ __webpack_require__.r(__webpack_exports__);
       lineShape.select_byExpandingSelection(true, true); // Add the last one
 
       if (params.lineParams.dots === "true") {
-        var _lineDot = MSOvalShape.alloc().init();
+        var _lineDot = NSBezierPath.bezierPath();
 
-        _lineDot.frame = MSRect.rectWithRect(NSMakeRect(xLast - params.lineParams.endWidth / 2, yLast - params.lineParams.endWidth / 2, params.lineParams.endWidth, params.lineParams.endWidth));
+        _lineDot.appendBezierPathWithArcWithCenter_radius_startAngle_endAngle(NSMakePoint(xLast, yLast), params.lineParams.endWidth / 2, 0, 360);
 
-        var _lineDotShape = MSShapeGroup.shapeWithPath(_lineDot);
+        var _newBezier2 = MSPath.pathWithBezierPath(_lineDot);
+
+        var _lineDotShape = MSShapeGroup.layerWithPath(_newBezier2);
 
         var _fillDot = _lineDotShape.style().addStylePartOfType(0);
 
@@ -1283,7 +1282,7 @@ __webpack_require__.r(__webpack_exports__);
     dataObj.niceMax = niceScales.niceMaximum;
     dataObj.niceMin = niceScales.niceMinimum;
 
-    if (canvas.layer.isKindOfClass(MSShapeGroup)) {
+    if (canvas.layer.class() != "MSLayerGroup") {
       createLineChart();
     } else {
       var plot = canvas.layer.firstLayer();
@@ -1468,7 +1467,7 @@ function selectionToGroup(canvas, chartName) {
   ; // Group from selected layers
 
   var layersToAdd = MSLayerArray.arrayWithLayers(sortedLayers);
-  var newGroup = MSLayerGroup.groupFromLayers(layersToAdd);
+  var newGroup = MSLayerGroup.groupWithLayers(layersToAdd);
   newGroup.setName(chartName);
   canvas.doc.currentPage().changeSelectionBySelectingLayers_([]);
 }
