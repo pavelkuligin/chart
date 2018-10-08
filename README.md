@@ -35,6 +35,9 @@ How to buy:
 6. You will receive email with download link or you can go to link "Download your Chart plugin for Sketch": https://yadi.sk/i/_M8_QpNlQWTzog
 7. Enjoy Chart, regular updates and personalised support :-)
 
+Note: If you can't download plugin or you didn't receive email just ping me pavelkuligin1993@yandex.ru or pavel.kuligin@behavox.com 
+and I will help you in a second.
+
 
 
 ## Roadmap
