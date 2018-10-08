@@ -26,7 +26,15 @@ Free version only includes Line chart builder.
 All features, regular updates and personalised support for $10 per year.
 [Buy Chart](https://gumroad.com/l/sjPyY)
 
-After paying the subscription you will receive an email with `Chart.sketchplugin`. 
+How to buy:
+1. [Go to link above](https://gumroad.com/l/sjPyY).
+2. Click "Subscribe" button.
+3. Enter your email address and password (it will be your login/password in Gumroad).
+4. Enter your credit card data or pay with Paypal. I don't store your data, all secured by Gumroad.
+5. Click Pay and Subscribe.
+6. You will receive email with download link or you can go to link "Download your Chart plugin for Sketch": https://yadi.sk/i/_M8_QpNlQWTzog
+7. Enjoy Chart, regular updates and personalised support :-)
+
 
 
 ## Roadmap
