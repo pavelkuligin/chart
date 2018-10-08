@@ -34,6 +34,7 @@ How to buy:
 5. Click Pay and Subscribe.
 6. You will receive email with download link or you can go to link "Download your Chart plugin for Sketch": https://yadi.sk/i/_M8_QpNlQWTzog
 7. Enjoy Chart, regular updates and personalised support :-)
+8. All updates and new versions of Chart will be stored in your library: https://gumroad.com/library
 
 Note: If you can't download plugin or you didn't receive email just ping me pavelkuligin1993@yandex.ru or pavel.kuligin@behavox.com 
 and I will help you in a second.
