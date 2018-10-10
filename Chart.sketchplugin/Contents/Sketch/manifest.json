@@ -12,15 +12,22 @@
       "identifier": "linechart",
       "description": "Create Line chart by real or random data",
       "script": "linechart.js"
+    },
+    {
+      "name": "Get the full version",
+      "identifier": "fullversion",
+      "description": "How to get the full version of Chart",
+      "script": "fullversion.js"
     }
   ],
   "menu": {
     "title": "📈 Chart",
     "items": [
-      "linechart"
+      "linechart",
+      "fullversion"
     ]
   },
-  "version": "4.2.0",
+  "version": "4.3.0",
   "name": "📈 Chart",
   "disableCocoaScriptPreprocessor": true,
   "author": "Pavel Kuligin",
