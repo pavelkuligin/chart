@@ -7,10 +7,21 @@ Chart is a Sketch plugin that uses real or random data to create the most popula
 
 ## How to use Chart
 
-A few video tutorials on Youtube:
+### Tutorials
+
 1. [Line chart, area chart, stacked area chart and stream graph](https://youtu.be/CvwgN6-Ajpg).
 2. [Pie chart, donut chart, progress bar and gauge chart](https://youtu.be/12bcYMmtDbU).
 3. [Bar charts, sparklines, scatter plot](https://youtu.be/zTvFl86aoXk).
+
+
+### Examples
+To try Chart in action you can use these references for random data:
+- Line Chart, Vertical/Horizontal Bar Chart, Area Chart, Stacked Area Chart, Stream Graph — `categories: 2`, `items: 10`;
+- Pie Chart, Donut Chart — `categories: 1`, `items: 5` (categories count should be equal to canvases count);
+- Progress Bar, Solid Gauge Chart — `categories: 1`, `items: 1` (categories count should be equal to canvases count, items always should be equal to 1);
+- Sparkline — `categories: 1`, `items: 20` (categories count should be equal to canvases count);
+- Scatter Plot — `categories: 3`, `items: 20` (categories always should be equal to 3);
+- Candlestick Chart — `categories: 4`, `items: 20` (categories always should be equal to 4);
 
 
 ## Install
@@ -56,7 +67,7 @@ and I will help you in a second.
 - [x] Stream Graph
 - [x] Scatter Plot and Bubble Chart
 - [x] Fetch data from JSON
-- [ ] Candlestick Chart (Oct 2018)
+- [x] Candlestick Chart
 
 
 ## Support
