@@ -34,7 +34,7 @@ Free version only includes Line chart builder. Chart works only with Sketch 52 o
 
 ### Full version
 
-All features, regular updates and personalised support for $10 per year. **Chart works only with Sketch 52 or higher.**
+All features, regular updates and personalised support for $10 per year. **Chart works only with Sketch 52 or higher.**<br/>
 [Buy Chart](https://gumroad.com/l/sjPyY)
 
 **How to buy:**
@@ -47,7 +47,7 @@ All features, regular updates and personalised support for $10 per year. **Chart
 7. Enjoy Chart, regular updates and personalised support :-)
 8. All updates and new versions of Chart will be stored in your library: https://gumroad.com/library
 
-**Note:** If you can't download plugin or you didn't receive email just ping me pavelkuligin1993@yandex.ru
+**Note:** If you can't download plugin or you didn't receive email just ping me pavelkuligin1993@yandex.ru<br/>
 and I will help you in a minute.
 
 
@@ -77,5 +77,5 @@ and I will help you in a minute.
 
 ## Support
 
-If you have any questions or ideas about Chart, please, feel free to contact me:
+If you have any questions or ideas about Chart, please, feel free to contact me:<br/>
 pavel.kuligin@behavox.com, www.pavelkuligin.ru or [facebook](https://www.facebook.com/kuligin.pavel)
