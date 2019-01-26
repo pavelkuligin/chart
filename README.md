@@ -46,6 +46,7 @@ All features, regular updates and personalised support for $10 per year. **Chart
 6. You will receive email with download link or you can go to link "Download your Chart plugin for Sketch": https://yadi.sk/i/_M8_QpNlQWTzog
 7. Enjoy Chart, regular updates and personalised support :-)
 8. All updates and new versions of Chart will be stored in your library: https://gumroad.com/library
+9. [Join our Slack channel](https://join.slack.com/t/chart-plugin/shared_invite/enQtNDc0MTYzMTE5MzkzLTliZWQ5YjNlN2NjZDkwZjA0YzI5MDEzOWM5YmZjMTVlNDBjYTJkYjgwYzc1M2VhMjc2ZjIwNzVjYThiZDMyM2U) for more updates.
 
 **Note:** If you can't download plugin or you didn't receive email just ping me pavelkuligin1993@yandex.ru<br/>
 and I will help you in a minute.
