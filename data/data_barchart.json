@@ -1,0 +1,27 @@
+[
+{
+	"date":"21.03",
+	"salary":"$3500",
+	"dividends":"$200"
+},
+{
+	"date":"22.03",
+	"salary":"$3400",
+	"dividends":"0"
+},
+{
+	"date":"23.03",
+	"salary":"$3550",
+	"dividends":"$1000"
+},
+{
+	"date":"24.03",
+	"salary":"$2000",
+	"dividends":"$220"
+},
+{
+	"date":"25.03",
+	"salary":"$3200",
+	"dividends":"0"
+}
+]
