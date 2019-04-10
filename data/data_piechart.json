@@ -1,0 +1,22 @@
+[
+{
+	"city":"New York",
+	"percent":"43%"
+},
+{
+	"city":"London",
+	"percent":"21%"
+},
+{
+	"city":"Moscow",
+	"percent":"18%"
+},
+{
+	"city":"Berlin",
+	"percent":"11%"
+},
+{
+	"city":"Montreal",
+	"percent":"7%"
+}
+]
