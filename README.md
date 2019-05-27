@@ -11,7 +11,7 @@ Chart is the most powerful data visualization plugin. Create charts with random,
 2. [Pay for subsription](https://gumroad.com/l/sjPyY) — $10 per year
 3. Enter email that you used for Gumroad at the first launch of plugin
 
-Explore all possibilities of Chart with [video tutorials on Youtube](https://youtu.be/CvwgN6-Ajpg).
+Explore all possibilities of Chart with [video tutorials on Youtube](https://www.youtube.com/watch?v=aOOknm3E5eU&list=PLj-isDIF-zZZ9FSTNNAWXOt9Be3p_J4lk).
 
 
 ### Roadmap Jun 1&ndash;31 
