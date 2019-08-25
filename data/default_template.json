@@ -1,0 +1,74 @@
+{
+	"name" : "Default template",
+	"id" : 0,
+	"colors" : {
+		"common" : ["#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6","#6a3d9a","#ffff99","#b15928"], 
+		"progressChart" : ["#e31a1c"], 
+		"sparkline" : ["#343434"], 
+		"scatterPlot" : ["#1f78b4"], 
+		"candlestickChart" : ["#33a02c", "#e31a1c"] 
+	},
+	"grid" : {
+		"type" : 1, 
+		"lineWidth" : 1,  
+		"color" : "#F0F0F0" 
+	},
+	"labels" : {
+		"type" : 1, 
+		"fontName" : "Helvetica", 
+		"fontSize" : 12, 
+		"color" : "#a3a3a3", 
+		"yAxisPosition" : "left", 
+		"xAxisPosition" : "bottom" 
+	},
+	"beginAtZero" : 0, 
+	"lineType" : 0, 
+	"sorting" : 0, 
+	"typeOfCircle" : 0, 
+	"lineChart" : {
+		"lineWidth" : 2, 
+		"dotType" : 1, 
+		"dotDiameter" : 8 
+	},
+	"areaChart" : {
+		"lineWidth" : 0, 
+		"opacity" : 0.8 
+	},
+	"verticalBarChart" : {
+		"margin" : 0.4, 
+		"roundTop" : 0, 
+		"useOneColor" : true 
+	},
+	"horizontalBarChart" : {
+		"margin" : 0.4, 
+		"roundTop" : 0, 
+		"useOneColor" : true 
+	},
+	"groupedBarChart" : {
+		"margin" : 0.4, 
+		"roundTop" : 0  
+	},
+	"groupedHorizontalBarChart" : {
+		"margin" : 0.4, 
+		"roundTop" : 0  
+	},
+	"donutChart" : {
+		"thicknessOfDonut" : 30 
+	},
+	"progressChart" : {
+		"backgroundColor" : "#f7f7f7", 
+		"thicknessOfProgress" : 10, 
+		"endOfLine" : 0 
+	},
+	"sparkline" : {
+		"lineWidth" : 1, 
+		"dotDiameter" : 4 
+	},
+	"scatterPlot" : {
+		"dotDiameter" : 8 
+	},
+	"candlestickChart" : {
+		"margin" : 0.4, 
+		"unfilledNegativeBoxes" : false 
+	}
+}
