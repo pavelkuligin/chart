@@ -2,7 +2,7 @@
 
 `COMPATIBILITY`: Chart works only with Sketch 53 or higher.
 
-Chart is the most powerful data visualization plugin. Create charts with random, tabular or JSON data inside Sketch. Customize visual representation of charts and change data in seconds. [Download Chart](https://pavelkuligin.ru/chart)
+Chart is the most powerful data visualization plugin. Create charts with random, tabular or JSON data inside Sketch. Customize visual representation of charts and change data in seconds. [Download Chart](https://github.com/pavelkuligin/chart/raw/master/Chart%20plugin/chart_5.3.5.zip)
 
 
 ### How to use Chart
