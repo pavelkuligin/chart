@@ -33,19 +33,13 @@ Apply a custom color palette, change line thickness and bar width. Sync with pro
 ## Put data into your charts easily
 With Chart you are able to visualize data from any source that you have.
 
-**Random data**
-If you do not have a real data set, you can create any type of chart with random data provided by Chart.
-
+**Random data:** if you do not have a real data set, you can create any type of chart with random data provided by Chart.
 [Create a simple chart](https://pavel-kuligin.gitbook.io/chart/getting-started)
 
-**Tabular data**
-Google Sheets, Excel, Numbers and CSV files are supported. You can copy/paste, upload or link data.
-
+**Tabular data:** Google Sheets, Excel, Numbers and CSV files are supported. You can copy/paste, upload or link data.
 [How to use tabular data](https://pavel-kuligin.gitbook.io/chart/tabulated-data)
 
-**JSON data**
-Connect live API via HTTPS link, that responds with valid JSON or just upload file from your computer.
-
+**JSON data:** connect live API via HTTPS link, that responds with valid JSON or just upload file from your computer.
 [How to use JSON](https://pavel-kuligin.gitbook.io/chart/json-data)
 
 ## Updating charts only takes a second
