@@ -62,7 +62,7 @@ Real data can influence the size and weight of your data visualization - use Cha
 *“Chart was the only tool I could find for Sketch that let me create data visualizations with my own data. The integration is what makes it awesome!”*
 **Jason Barrie, SparkPost**
 
-*Chart has helped me to show real data in my prototypes in just a few clicks. Pavel's support is also amazing!”*
+*“Chart has helped me to show real data in my prototypes in just a few clicks. Pavel's support is also amazing!”*
 **Dries De Schepper, Deloitte Digital**
 
 *“Chart has radically reduced the amount of time I've needed to spend creating various charts and graphs for prototypes. Being able to use real data to build them from is hugely helpful!”*
