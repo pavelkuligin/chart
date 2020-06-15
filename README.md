@@ -18,13 +18,13 @@ Chart is a plugin for Sketch, Figma, and Adobe XD. Try Chart to save yourself ho
 7. Area chart
 8. Grouped bar chart
 9. Sparkline
-10.Stacked area chart
-11.Stream graph
-12.Horizontal grouped bar chart
-13.Progress bar
-14.Scatterplot
-15.Histogram
-16.Heatmap 
+10. Stacked area chart
+11. Stream graph
+12. Horizontal grouped bar chart
+13. Progress bar
+14. Scatterplot
+15. Histogram
+16. Heatmap 
 
 ## Make charts with your data on the fly or create random ones
 Chart helps you to visualize data from any source you have.
