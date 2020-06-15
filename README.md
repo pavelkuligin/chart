@@ -1,40 +1,33 @@
-<img width="888" height="540" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/chart_new.png" title="Chart promo">
+<img width="1024" height="468" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/chart-illustration.png" title="Chart promo">
 
 `COMPATIBILITY`: Chart works only with Sketch 53 or higher.
 
-Chart is a plugin for Sketch and Figma that uses real or random data to create the most popular charts. Chart supports copy-paste from editors like Excel, Numbers, Google Sheets, live connection with Google Sheets and remote JSON (REST API), local CSV and JSON files.
+Chart is a plugin for Sketch, Figma, and Adobe XD. Try Chart to save yourself hours of manual, tedious work, and create a graph with real or random data in seconds. It's easy to make, edit, and customize different types of graphs. Chart supports copy-paste from editors like Excel, Numbers, Google Sheets, live connection with Google Sheets and remote JSON (REST API), local CSV and JSON files.
 
-[Download plugin](https://chartplugin.com/index.html#tryBlock)
+[Install Chart](https://chartplugin.com/index.html#tryBlock)
 
 ## The richest collection of chart types
-15 of the most popular chart types out-of-the-box. Didn't find what you want? Just let me know and I will add it to the collection.
+16 the most popular chart types out-of-the-box. Didn't find one you want? Just let me know, and I will add it to the collection.
 
-1. Line chart
-2. Area chart
-3. Stacked area chart
-4. Stream graph
-5. Vertical bar chart
-6. Horizontal bar chart
-7. Grouped bar chart
-8. Horizontal grouped bar chart
-9. Pie chart
-10. Donut chart
-11. Progress bar
-12. Sparkline
-13. Scatterplot
-14. Candlestick chart
-15. Histogram
+1. Pie chart
+2. Line graph
+3. Vertical bar graph
+4. Horizontal bar graph
+5. Candlestick chart
+6. Donut chart
+7. Area chart
+8. Grouped bar chart
+9. Sparkline
+10.Stacked area chart
+11.Stream graph
+12.Horizontal grouped bar chart
+13.Progress bar
+14.Scatterplot
+15.Histogram
+16.Heatmap 
 
-## Personalize your charts with a template
-Apply a custom color palette, change line thickness and bar width. Sync with product guidelines and use local or global settings to apply consistent style.
-
-[Read more about templates](https://pavel-kuligin.gitbook.io/chart/templates)
-
-## Put data into your charts easily
-With Chart you are able to visualize data from any source that you have.
-
-**Random data:** if you do not have a real data set, you can create any type of chart with random data provided by Chart.
-[Create a simple chart](https://pavel-kuligin.gitbook.io/chart/getting-started)
+## Make charts with your data on the fly or create random ones
+Chart helps you to visualize data from any source you have.
 
 **Tabular data:** Google Sheets, Excel, Numbers and CSV files are supported. You can copy/paste, upload or link data.
 [How to use tabular data](https://pavel-kuligin.gitbook.io/chart/tabulated-data)
@@ -42,18 +35,20 @@ With Chart you are able to visualize data from any source that you have.
 **JSON data:** connect live API via HTTPS link, that responds with valid JSON or just upload file from your computer.
 [How to use JSON](https://pavel-kuligin.gitbook.io/chart/json-data)
 
-## Updating charts only takes a second
-Resize your charts to redraw them with better-than-smart logic with one click. Connecting Chart to Google Sheets or an API keeps your chart updated with real data.
+**Random data:** if you do not have a real data set, you can create any type of chart with random data provided by Chart.
+[Create a simple chart](https://pavel-kuligin.gitbook.io/chart/getting-started)
 
-[Find out more](https://pavel-kuligin.gitbook.io/chart/getting-started/update-chart)
 
-## Experiment with chart types or styles via built in edit feature
-Real data can influence the size and weight of your data visualization - use Chart’s built in edit feature to try different configurations.
+## Customize your charts with templates
+Apply a custom color palette, change line thickness, and bar width. Sync with product guidelines and use local or global settings to apply a consistent style.
 
-[How to edit chart](https://pavel-kuligin.gitbook.io/chart/getting-started/edit-chart)
+[Read more about templates](https://pavel-kuligin.gitbook.io/chart/templates)
 
 ## Speed up your data visualizations today
-[Download and install Chart](https://chartplugin.com/index.html#tryBlock) and try two chart types. Pay just $10/year to unlock all charts and save hours of boring work.
+[Download and install Chart](https://chartplugin.com/index.html#tryBlock) and start with two chart types for free. Pay just $10/year to unlock all charts and save yourself hours of boring work.
+
+## Have questions or need any help?
+[Visit Chart promo page](https://chartplugin.com/) or reach me out [on Twitter](https://twitter.com/pavelkuligin93). We'll be happy to see you in [our community in Slack](https://join.slack.com/t/chart-plugin/shared_invite/zt-61tsh8gx-C0TBYxSU8ShA~IK_v121dA), where we have inspiring designers from top tech companies like Google, Microsoft, and Netflix and share all our news and updates. 
 
 ## Reviews
 *“Using the Chart plugin connected to live data, and style templates has allowed us at Cisco to experiment and build our data visualization system in record time!”*
