@@ -45,7 +45,7 @@ Apply a custom color palette, change line thickness, and bar width. Sync with pr
 [Read more about templates](https://pavel-kuligin.gitbook.io/chart/templates)
 
 ## Speed up your data visualizations today
-[Download and install Chart](https://chartplugin.com/index.html#tryBlock) and start with two chart types for free. Pay just $10/year to unlock all charts and save yourself hours of boring work.
+[Download and install Chart](https://chartplugin.com/index.html#tryBlock) and start with two chart types for free. Pay just $20/year to unlock all charts and save yourself hours of boring work.
 
 ## Have questions or need any help?
 [Visit Chart promo page](https://chartplugin.com/) or reach me out [on Twitter](https://twitter.com/pavelkuligin93). We'll be happy to see you in [our community in Slack](https://join.slack.com/t/chart-plugin/shared_invite/zt-61tsh8gx-C0TBYxSU8ShA~IK_v121dA), where we have inspiring designers from top tech companies like Google, Microsoft, and Netflix and share all our news and updates. 
