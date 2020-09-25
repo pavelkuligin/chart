@@ -1,6 +1,6 @@
 <img width="1024" height="468" src="https://raw.githubusercontent.com/pavelkuligin/chart/master/images/chart-illustration.png" title="Chart promo">
 
-`COMPATIBILITY`: Chart works only with Sketch 53 or higher.
+`COMPATIBILITY`: Chart works only with Sketch 56 or higher.
 
 Chart is a plugin for Sketch, Figma, and Adobe XD. Try Chart to save yourself hours of manual, tedious work, and create a graph with real or random data in seconds. It's easy to make, edit, and customize different types of graphs. Chart supports copy-paste from editors like Excel, Numbers, Google Sheets, live connection with Google Sheets and remote JSON (REST API), local CSV and JSON files.
 
